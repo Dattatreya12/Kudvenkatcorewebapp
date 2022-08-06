@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Broker>
+@{
+    ViewData["Title"] = "BrokerNames";
+}
+
+<h1>List of BrokerNames</h1>
+
+<div class="container">
+    <div class="col-12">
+        <table class="table table-striped">
+            <tr class="  bg-info text-black">
+                @*<th>ID</th>*@
+                <th>Broker Name</th>
+                <th>Actions</th>
+            </tr>
+            @foreach(var item in Model)
+            {
+        <tr>
+            @*<td>@item.ID</td>*@
+            <td>@item.BrokerName</td>
+            <td>Actions</td>
+        </tr>
+            }
+        </table>
+    </div>
+</div>

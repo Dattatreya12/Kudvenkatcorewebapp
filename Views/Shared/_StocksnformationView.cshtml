@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BrokerTradeViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<div class="container">
+<div class="col-12">
+    <table class="table table-striped">
+        <tr class="  bg-info text-black">
+            @*<th>ID</th>*@
+            <th>Stock Name</th>
+            <th>Stocktotalshares</th>
+            <th>Stockbuykprice</th>
+            <th>Stocksellprice</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        @*<td>@item.ID</td>*@
+        <td>@item.tradeinformation.Stockname</td>
+        <td>@item.tradeinformation.Stocktotalshares</td>
+        <td>@item.tradeinformation.Stockbuykprice</td>
+        <td>@item.tradeinformation.Stocksellprice</td>
+        <td>Actions</td>
+    </tr>
+        }
+    </table>
+</div>
+</div>

@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>7a1d1ff9-bc3d-42ea-83e4-ebbb4b549b51</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20220610115028_AddedCityTable.cs" />
+    <Compile Remove="Migrations\20220610115028_AddedCityTable.Designer.cs" />
+    <Compile Remove="Migrations\20220610115028_AddingCityTable.cs" />
+    <Compile Remove="Migrations\20220610115028_AddingCityTable.Designer.cs" />
+    <Compile Remove="Migrations\20220629152510_LoanEmployeeDetails.cs" />
+    <Compile Remove="Migrations\20220629152510_LoanEmployeeDetails.Designer.cs" />
+    <Compile Remove="Migrations\20220629152857_AddingLoanDetailsEmployee.cs" />
+    <Compile Remove="Migrations\20220629152857_AddingLoanDetailsEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20220629153220_LoanEmployee.cs" />
+    <Compile Remove="Migrations\20220629153220_LoanEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20220629155258_LoanDetailsEmployee.cs" />
+    <Compile Remove="Migrations\20220629155258_LoanDetailsEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20220629155924_EmployeeLoanDetails.cs" />
+    <Compile Remove="Migrations\20220629155924_EmployeeLoanDetails.Designer.cs" />
+    <Compile Remove="Migrations\20220629160654_LoanDetailsEmployee.cs" />
+    <Compile Remove="Migrations\20220629160654_LoanDetailsEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20220630064308_AddednewcolumnstoLoanUser.cs" />
+    <Compile Remove="Migrations\20220630064308_AddednewcolumnstoLoanUser.Designer.cs" />
+    <Compile Remove="Migrations\20220701141211_AddedNewTableMonthlyLoanInformation.cs" />
+    <Compile Remove="Migrations\20220701141211_AddedNewTableMonthlyLoanInformation.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Service\" />
+    <Folder Include="Services\" />
+    <Folder Include="Views\Shared\Loan\" />
+    <Folder Include="Views\Shared\StockAdmin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="cloudscribe.Pagination.Models" Version="1.1.0" />
+    <PackageReference Include="cloudscribe.Web.Pagination" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

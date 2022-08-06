@@ -1,0 +1,147 @@
+﻿@model cloudscribe.Pagination.Models.PagedResult<LoanEmployees>
+@*@model IEnumerable<Kudvenkatcorewebapp.Models.LoanEmployees>*@
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["Controller"] = "LoanModule";
+    ViewData["Action"] = "Index";
+}
+
+<h1>Loan Users</h1>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("body").on('click', '#btnAddsave', function () {
+            //$("#MyPopup").modal("hide");
+            $.ajax({
+                url: 'LoanModule/AddCustomer',
+                data: {},
+                type: 'POST',
+                dataType: 'html',
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    $("#dvPartial").html(response);
+                    $("#MyPopup").modal("show");
+                }
+            });
+        });
+    });
+
+
+</script>
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+    <button id="btnAddsave" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+       Add Loan Details
+    </button>
+
+    @*<a id="btnAdd" class="btn btn-outline-success btn-sm">Add Customer</a>*@
+</p>
+<body>
+    <table class="table table-striped text-sm-center font-weight-bold mx-auto">
+        <thead class="bg-info text-black">
+            <tr class="table-info">
+                <th>
+                    LoanUserName
+                </th>
+                <th>
+                    LoanID
+                </th>
+                <th>
+                    TotalLoanAmount
+                </th>
+                <th>
+                    TotalEmi
+                </th>
+                <th>
+                    LoanDate
+                </th>
+                <th>
+                    TotalIntrest
+                </th>
+                <th>
+                    LoanStatus
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoanUserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoanID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalLoanAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalEmi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoanDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalIntrest)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoanStatus)
+                    </td>
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                        <a asp-action="LoanInformationByLoanID" asp-controller="LoanModule" asp-route-LoanID="@item.LoanID">Details</a>
+                        @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        <tfoot class="bg-info text-white">
+            <tr>
+                <td></td>
+                <td></td>
+                <td>@Model.Data.Sum(i=>i.TotalLoanAmount)</td>
+                <td></td>
+                <td></td>
+                <td>@Model.Data.Sum(i=>i.TotalIntrest)</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+    <partial name="_PaginationPartial" view-data="ViewData" model="Model" />
+
+    <!-- Modal Popup -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="dvPartial"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    @*<button id="btnAddsavedatabase" type="button" class="btn btn-primary">Save changes</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+

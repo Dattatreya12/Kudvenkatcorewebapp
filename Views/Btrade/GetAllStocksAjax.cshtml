@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Tradeinformation>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@if (@ViewBag.message == 1)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Good!</strong> Successfully Inserted Your Data.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<p><a asp-action="ShareCreate" asp-controller="Btrade" class="btn btn-sm btn-success m-1">Create New Stock</a></p>
+
+<table class="table table-striped text-sm-center font-weight-bold mx-auto">
+    <thead class="bg-info text-white">
+        <tr>
+            <th>SL NO</th>
+            <th>ID</th>
+            <th>Stockname</th>
+            <th>Stockbuykprice</th>
+            <th>Stocksellprice</th>
+            <th>Stocktotalshares</th>
+            <th>Stock purchased date</th>
+            <th>Stock sell date</th>
+            <th>Total Invested Amount</th>
+            <th>Broker Name</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Select((x, i) => new { data = x, Index = i }))
+        {
+            <tr id="TR_@item.data.Id">
+                <td>
+                    @( ((Int32)1) + item.Index )
+                </td>
+               
+                <partial name="_Allstocinformation" model="@item.data" />
+            </tr>
+        }
+    </tbody>
+
+    <tfoot class="bg-info text-white">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@Model.Sum(i => i.TotalInvestedAmount)</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+    function deleteItem(form) {
+        var RemoveItem1 = $(form);
+        RemoveItem1.closest("tr").remove();
+    }
+
+    function ShowDetailForm() {
+        $("#DivDetailView").addClass("visible");
+        $("#DivDetailView").removeClass("invisible");
+
+        $("#DivListView").addClass("invisible");
+        $("#DivListView").removeClass("visible");
+        return;
+    }
+
+    function CloseDetailForm() {
+        $("#DivDetailView").addClass("invisible");
+        $("#DivDetailView").removeClass("visible");
+
+        $("#DivListView").addClass("visible");
+        $("#DivListView").removeClass("invisible");
+        return;
+    }
+    </script>
+}

@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<BrokerTradeViewModel>
+
+
+@{
+    ViewData["Title"] = "BrokerDropdownList";
+}
+
+    <div class="expand-lg navbar-light bg-light m-1">
+        <h1>BROKER DETAILS</h1>
+
+        @*<div class="form-group">
+            <label asp-for="BrokerName" class="control-label"></label>
+            <select asp-for="BrokerName" class="form-control" asp-items=" ViewBag.brokerlist">
+                <option value="">Please select City</option>
+            </select>
+
+        </div>*@
+
+        @*<div class="form-group">
+            <label asp-for="BrokerName" class="control-label"></label>
+            <select asp-for="BrokerName" class="form-control" asp-items=" ViewBag.brokerlist">
+                <option value="">Please select City</option>
+            </select>
+        </div>*@
+
+        @foreach (var i in Model)
+        {
+            <partial name="_StocksnformationView" model="i" />
+        }
+
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("p").hide();
+            });
+            $("#show").click(function () {
+                $("p").show();
+            });
+        });
+    </script>

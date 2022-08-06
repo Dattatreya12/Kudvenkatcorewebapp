@@ -1,0 +1,66 @@
+﻿@model Tradeinformation
+
+<div>
+    <h4>Tradeinformation</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stockname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stockname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stockbuykprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stockbuykprice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stocksellprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stocksellprice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stocktotalshares)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stocktotalshares)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stockpurchaseddate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stockpurchaseddate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stockselldate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stockselldate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BrokerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BrokerName)
+        </dd>
+    </dl>
+</div>
+<div>
+   @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>*@
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,26 @@
+﻿@model BrokerTradeViewModel
+@{
+    ViewData["Title"] = "RoughView";
+}
+
+<h1>RoughView</h1>
+
+<div class="col-md-4">
+    <select id="ddlNationality"><option value="0">--Select Country--</option></select>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST", url: "RoughView/Btrade", dataType: "json", contentType: "application/json", success: function (res) {
+                $.each(res.d, function (data, value) {
+
+                    $("#ddlNationality").append($("<option></option>").val(value.ID).html(value.BrokerName));
+                })
+            }
+
+        });
+
+    })
+
+</script>  

@@ -1,0 +1,177 @@
+﻿@model Kudvenkatcorewebapp.ViewModels.Trade.DashBoardTradeItemsViewModel
+@{
+    ViewData["Title"] = "StocksDashBoard";
+}
+
+
+
+    <div style="background-color:rgb(233,234,237)">
+
+        <div class="row m-1 shadow-sm border border-light">
+            <div class="col-xs-6 col-md-10 m-0">
+                <h2>StocksDashBoard:@Model.Year</h2>
+            </div>
+            <div class="col-xs-6 col-md-2  m-0">
+                <button type="button" class="btn btn-info shadow-sm" data-toggle="modal" data-target="#myModal">PROFIT AND LOSS</button>
+            </div>
+        </div>
+
+
+
+        <div class="row m-1 ">
+
+            <div class="card col-3 m-0 border-white shadow-sm">
+                <div class="card-body bg-gradient">
+                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested in Zerodha</h6>
+                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                    <h4 class="card-text text-black">Rs:@Model.TotalinvestZerodha</h4>
+                    @*<a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>*@
+                </div>
+            </div>
+
+            <div class="card col-3 m-0 border-white shadow-sm">
+                <div class="card-body bg-gradient">
+                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested in Upstox</h6>
+                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                    <h4 class="card-text text-black">Rs:@Model.TotalinvestedUpstox</h4>
+                    @*<a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>*@
+                </div>
+            </div>
+
+            <div class="card col-3  m-0 border-white shadow-sm">
+                <div class="card-body bg-gradient">
+                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested in Angel</h6>
+                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                    <h4 class="card-text text-black">Rs:@Model.TotalinvestedAngel</h4>
+                    @*<a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>*@
+                </div>
+            </div>
+
+            <div class="card col-3 m-0 border-white shadow-sm">
+                <div class="card-body bg-gradient">
+                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested Amount</h6>
+                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                    <h4 class="card-text text-black">Rs:@Model.TotalInvestment</h4>
+                    @*<a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>*@
+                </div>
+            </div>
+
+        </div>
+        <br />
+
+        <div class="row bg-white">
+
+            <div class="col-xs-6 col-md-2 shadow-sm bg-light">
+                <div class="card-body bg-dark">
+                    <h6 class="card-title text-capitalize text-white">Total Invested in Zerodha</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <h4 class="card-text text-white">Rs:@Model.TotalinvestZerodha</h4>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+
+            @*background-color:#f8f9fa;*@
+            <div class="col-xs-12 col-sm-6 col-md-8 shadow-sm" style=" border-color:green">
+                <h3 class="m-0 bg-success shadow-sm text-white">List of Stocks</h3>
+                <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2">
+                    <thead class="bg-info text-black">
+                        <tr class="table-info">
+                            <th>Broker Name</th>
+                            <th>Share Name</th>
+                            <th>Buy Price</th>
+                            <th>Total Share</th>
+                            <th>Total Investment</th>
+                            <th>Purchased Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.tradeinformations)
+                        {
+                            <tr>
+                                <td>@item.BrokerName</td>
+                                <td>@item.Stockname</td>
+                                <td>@item.Stockbuykprice</td>
+                                <td>@item.Stocktotalshares</td>
+                                <td>@item.TotalInvestedAmount</td>
+                                <td>@item.Stockpurchaseddate</td>
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-6 col-md-2 bg-white">
+                <div class="card-body bg-gradient">
+                    <h6 class="card-title text-capitalize bg-info text-white">Total Invested in Zerodha</h6>
+                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                    <h4 class="card-text text-white">Rs:@Model.TotalinvestZerodha</h4>
+                    @*<a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>*@
+                </div>
+            </div>
+
+        </div>
+
+        <br />
+        <h3 class="m-0 bg-success shadow-sm text-white">List of Stocks</h3>
+        <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2">
+            <thead class="bg-info text-black">
+                <tr class="table-info">
+                    <th>Broker Name</th>
+                    <th>Stock Name</th>
+                    <th>Buy Price</th>
+                    <th>Total Share</th>
+                    <th>Total Investment</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.extraQuantityAddedinStocks)
+                {
+                    <tr>
+                        <td>@item.BrokerName</td>
+                        <td>@item.StockName</td>
+                        <td>@item.BuyPrice</td>
+                        <td>@item.TotalShare</td>
+                        <td>@item.TotalInvestment</td>
+                        <td>@item.Month</td>
+                        <td>@item.Year</td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+        @*Modal Popup for Profit and Looss*@
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header text-white bg-primary">
+                        <h4 class="modal-title text-center">Total Profit and Loss</h4>
+                        <button type="button" class="close float-right" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p><h6>Total Profit</h6><h5 class="text-success">@Model.Totalprofit</h5></p>
+                        <p><h6>Total Loss</h6><h5 class="text-danger">@Model.Totalloss</h5></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>

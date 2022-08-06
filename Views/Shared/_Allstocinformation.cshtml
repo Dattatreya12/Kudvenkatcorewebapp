@@ -1,0 +1,36 @@
+﻿@model Tradeinformation
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+ <td>@Html.DisplayFor(m => Model.Id)</td>
+<td>@Html.DisplayFor(m => Model.Stockname)</td>
+<td>@Html.DisplayFor(m => Model.Stockbuykprice)</td>
+<td>@Html.DisplayFor(m => Model.Stocksellprice)</td>
+<td>@Html.DisplayFor(m => Model.Stocktotalshares)</td>
+<td>@Html.DisplayFor(m => Model.Stockpurchaseddate)</td>
+<td>@Html.DisplayFor(m => Model.Stockselldate)</td>
+<td>@Html.DisplayFor(m => Model.TotalInvestedAmount)</td>
+<td>@Html.DisplayFor(m => Model.BrokerName)</td>
+<td>
+    <div class="btn-group">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-info m-1">EDIT</a>
+        @*<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-sm btn-danger m-1">DELETE</a>*@
+
+        <form asp-action="ViewShare" asp-route-id="@Model.Id"
+              data-ajax="true"
+              data-ajax-update="#DivDetailView"
+              data-ajax-success="ShowDetailForm()">
+            <button type="submit" class="btn btn-sm btn-danger m-1">
+                DETAILS
+            </button>
+        </form>
+
+        <form asp-action="DeleteShare" asp-route-id="@Model.Id" data-ajax="true" data-ajax-success="deleteItem(this)">
+            <button type="submit" class="btn btn-sm btn-danger m-1" onclick="return confirm('Are you sure want to delete share?');">
+                DELETE
+            </button>
+        </form>
+    </div>
+</td>
