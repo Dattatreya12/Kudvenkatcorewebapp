@@ -23,6 +23,6 @@ namespace Kudvenkatcorewebapp.ViewModels.Sangh
         public double TotalIntrest { get; set; }
         public DateTime LoanDate { get; set; }
 
-
+       
     }
 }

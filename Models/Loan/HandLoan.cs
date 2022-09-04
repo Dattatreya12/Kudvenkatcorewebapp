@@ -18,6 +18,8 @@ namespace Kudvenkatcorewebapp.Models.Loan
         public ICollection<Employee> employeesname { get; set; }
         //Migration AddedColumnintoHandLoanActive
         public int Active { get; set; }
+
+        public double TotalIntrest { get; set; }
        
     }
 }

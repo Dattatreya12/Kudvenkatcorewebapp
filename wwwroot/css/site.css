@@ -61,11 +61,12 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  margin:4px;
 }
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 98%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
@@ -73,4 +74,34 @@ body {
 .imageThumbnail{
     height:200px;
     width:auto;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-display: unset;
+    font-weight: bold;
+    font-size: larger;
+}
+/*.bor {
+    float: left;
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    background: #ffffff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+    -moz-box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+    box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+}*/
+
+
+#preloader {
+  
+    background: #000 url('../images/Gear.gif') no-repeat center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
 }
