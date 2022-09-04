@@ -15,5 +15,7 @@ namespace Kudvenkatcorewebapp.Models.Loan
         public int Year { get; set; }
         public double TotalIntrest { get; set; }
         public int Active { get; set; }
+
+        public double HandLoan { get; set; }
     }
 }
