@@ -200,6 +200,9 @@ namespace Kudvenkatcorewebapp.Migrations
                     b.Property<string>("Month")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("TotalIntrest")
+                        .HasColumnType("float");
+
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
@@ -257,6 +260,9 @@ namespace Kudvenkatcorewebapp.Migrations
 
                     b.Property<int?>("DashBoardViewModelId")
                         .HasColumnType("int");
+
+                    b.Property<double>("HandLoan")
+                        .HasColumnType("float");
 
                     b.Property<string>("Month")
                         .HasColumnType("nvarchar(max)");

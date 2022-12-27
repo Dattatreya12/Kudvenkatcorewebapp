@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {}
+    "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {}
   },
   "projects": {
-    "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {
+    "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
+        "projectUniqueName": "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
         "projectName": "Kudvenkatcorewebapp",
-        "projectPath": "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
-        "packagesPath": "C:\\Users\\Dattatreya\\.nuget\\packages\\",
-        "outputPath": "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\obj\\",
+        "projectPath": "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
+        "packagesPath": "C:\\Users\\DAttatreya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Dattatreya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DAttatreya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -74,6 +73,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.1, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -110,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.419\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }
