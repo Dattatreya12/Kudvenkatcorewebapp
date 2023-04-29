@@ -251,7 +251,6 @@ namespace Kudvenkatcorewebapp.Controllers
 
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Addextrastock()
         {
