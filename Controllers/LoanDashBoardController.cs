@@ -33,9 +33,9 @@ namespace Kudvenkatcorewebapp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> LoanDashBoardAsync()
+        public async Task<IActionResult> LoanDashBoardAsync(int pageNumber = 1, int pageSize = 5)
         {
-
+            int ExcludeRecords = (pageSize * pageNumber) - pageSize;
             // var loanemmployee =  _context.loanEmployees.Where(x => x.Active == 1).ToList();
             //return brokerlist;
             DateTime currentmonth = DateTime.Now;
@@ -50,7 +50,9 @@ namespace Kudvenkatcorewebapp.Controllers
 
             // MonthlyTrackLoan
             var TrackmonthlyLoan = new List<MonthlyLoanTrack>();
-            
+
+           
+
             var result = (from loanuser in _context.loanEmployees
                                join employee in _context.employees on loanuser.EmployeeId equals employee.Id
                                where loanuser.Active == 1 orderby loanuser.LoanDate descending
@@ -73,8 +75,6 @@ namespace Kudvenkatcorewebapp.Controllers
                 {
                     int Totalmonthlyamount = sharesdata.TotalloanAmount / sharesdata.Emi;
                     totalsumloan += Totalmonthlyamount;
-                  
-                   
 
                     usages.Add(new LoanEmployees()
                     {
@@ -100,6 +100,7 @@ namespace Kudvenkatcorewebapp.Controllers
                                HandLoanAmount=HandLoan.HandLoanAmount,
                                Month=HandLoan.Month,
                                Year=HandLoan.Year,
+                               Intrest=HandLoan.TotalIntrest,
 
                            }).ToList();
 
@@ -114,6 +115,7 @@ namespace Kudvenkatcorewebapp.Controllers
                         HandLoanAmount = hl.HandLoanAmount,
                         Month = hl.Month,
                         Year = hl.Year,
+                        TotalIntrest = hl.Intrest
                     });
                    
                 }

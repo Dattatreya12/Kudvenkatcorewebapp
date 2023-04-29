@@ -50,7 +50,12 @@ namespace Kudvenkatcorewebapp.Repository.LoanRepository
                               totalemi = loanuser.TotalEmi,
                               totalintrest = loanuser.TotalIntrest,
                               loandate = loanuser.LoanDate,
-                              Status=loanuser.LoanStatus
+                              Status=loanuser.LoanStatus,
+                            
+                              //TotalLoanAmount = Totalmonthlyamount,
+                              TotalPaidEmi = loanuser.TotalPaidEmi,
+                              TatlBalanceEmi = loanuser.TatlBalanceEmi,
+                              //LoanDate = loanuser.LoanDate,
                           }).ToListAsync();
 
             if (result?.Any() == true)
@@ -65,7 +70,9 @@ namespace Kudvenkatcorewebapp.Repository.LoanRepository
                         TotalEmi=sharesdata.totalemi,
                         TotalIntrest=sharesdata.totalintrest,
                         LoanDate=sharesdata.loandate,
-                        LoanStatus=sharesdata.Status
+                        LoanStatus=sharesdata.Status,
+                        TotalPaidEmi = sharesdata.TotalPaidEmi,
+                        TatlBalanceEmi = sharesdata.TatlBalanceEmi,
 
                     });
                 }
