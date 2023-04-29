@@ -1,0 +1,135 @@
+﻿
+@model Dividend_info
+@*<div class="alert alert-warning alert-dismissible fade show" role="alert" id="sucmsg">
+        <strong>Good!</strong> Successfully Inserted Your Data.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>*@
+
+<div class="bg-gradient">
+    <button type="button" id="adddividend" class="btn btn-primary m-2">Add Dividend</button>
+    <button id='Addextrastocks' data-toggle="modal" data-target="" class="btn btn-primary m-2" onclick="Addextrastocks();">Add Extra Stock</button>
+    <button id='Adddailyprofitloss' data-toggle="modal" data-target="" class="btn btn-primary m-2" onclick="Adddailyprofitloss();">Add Daily Income/Loss</button>
+    @*<button type="button" id="addextrastock" class="btn btn-primary m-2"></button>*@
+</div>
+<table class="table table-bordered">
+    <thead class="bg-primary" style="font-size:small; font-weight:bold">
+        <tr>
+            <th>StockName</th>
+            <th>Amount</th>
+            <th>Year</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody style="font-size:small" class="text-sm-left text-muted" id="table_data">
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Total Amount :</td>
+            <td id="tfoot"></td>
+        </tr>
+    </tfoot>
+</table>
+
+
+@*Boostrao Modal for dividend*@
+<div class="modal fade modal" id="dividendmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h6>Add Dividend</h6>
+                <button type="button" class="close text-danger" data-dismiss="modal" aria-hidden="true" id="modalclose">
+                    &times;
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label font-weight-bold text-black">Select-Stocks</label>
+                        <div class="col-sm-12">
+                            <select asp-for="stockname" class="form-control" asp-items=" ViewBag.tradelist" id="stockid">
+                                <option value="">Please select Stock</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">Dividend Amount</label>
+                        <input type="text" class="form-control" placeholder="enter dividend" id="divamount" autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">Year</label>
+                        <input type="text" class="form-control" id="yr" autocomplete="off" value="@DateTime.Now.Year" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="adddividata" onclick="AddDividend();">Add Dividend</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Boostrao Modal for Extra Stocks*@
+<!--<div id="showmodal" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+           
+        </div>--><!-- /.modal-content -->
+    <!--</div>--><!-- /.modal-dialog -->
+<!--</div>--><!-- /.modal -->
+
+@*Add Extra Stock Logic*@
+<div class="modal fade" id="mymodal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title bg-light">Add Extra Stock</h3>
+                <button type="button" class="close text-danger" data-dismiss="modal" aria-hidden="true" id="extrastockmodalclose"> &times;</button>
+
+            </div>
+
+            <div class="modal-body" id="myModalBodyDiv1">
+
+            </div>
+
+            @*<div class="modal-footer">
+                <a href="#"  class="btn btn-primary">Save changes</a>
+                <a href="#"  class="btn btn-secondary" data-dismiss="modal">Close</a>
+            </div>*@
+        </div>
+    </div>
+</div>
+
+@*Add Daily Profit and Loss*@
+<div class="modal fade" id="mymodal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-black font-weight-bold">Add Daily Profit and Loss</h3>
+                <button type="button" class="close text-danger" data-dismiss="modal" aria-hidden="true" id="CloseDailyProfitLoss"> &times;</button>
+
+            </div>
+
+            <div class="modal-body" id="myModalBodyDiv2">
+
+            </div>
+
+            @*<div class="modal-footer">
+                    <a href="#"  class="btn btn-primary">Save changes</a>
+                    <a href="#"  class="btn btn-secondary" data-dismiss="modal">Close</a>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/js/CustomScript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">

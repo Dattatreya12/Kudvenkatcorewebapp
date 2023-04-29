@@ -171,10 +171,11 @@ namespace Kudvenkatcorewebapp.Controllers
             return View();
 
         }
-        public ActionResult AllEmployee()
+        public ViewResult AllEmployee()
         {
            
-            var model = _employeeRepository.GetEmployeesList();
+            var model = _employeeRepository.GetAllEmployees();
+            ViewBag.emailsentmessege = model.Count();
             return View(model);
         }
 
@@ -227,6 +228,11 @@ namespace Kudvenkatcorewebapp.Controllers
             }
 
             return View("CustomErrorPage");
+        }
+
+        public IActionResult Example()
+        {
+            return View();
         }
     }
 }

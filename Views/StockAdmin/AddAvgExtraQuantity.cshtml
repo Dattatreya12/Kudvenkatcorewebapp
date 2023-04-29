@@ -1,0 +1,146 @@
+﻿@model BrokerTradeViewModel
+
+@{
+    ViewData["Title"] = "AddAvgExtraQuantity";
+}
+
+
+<div class="modal fade" id="aModal" tabindex="-1" role="dialog" aria-labelledby="aModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="aModalLabel">Message</h4>
+                    <button type="button" class="close" data-dismiss="aModal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @ViewBag.Result
+                </div>
+                @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="aModal">Close</button>
+                </div>*@
+            </div>
+        </div>
+    </div>
+@{
+    if (ViewBag.Result != null)
+    {
+        <script type="text/javascript">
+            $(function () {
+                $("#aModal").modal('show');
+            });
+        </script>
+    }
+}
+
+
+
+@if (@ViewBag.message == 1)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Good!</strong> Successfully Inserted Your Data.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+@if (@ViewBag.message == 2)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Good!</strong> Error in saving Data!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<hr />
+<div class="row bg-light">
+    <div class="col-md-4 bg-info">
+        <form asp-action="AddAvgExtraQuantity" asp-controller="StockAdmin" method="post" class="mt-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label font-weight-bold text-black">Select-Brokers</label>
+                <div class="col-sm-12">
+                    <select asp-for="ExtraQuantityAddedinStocks.brokerid" class="form-control" asp-items=" ViewBag.brokerlist">
+                        <option value="">Please select Broker</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label font-weight-bold text-black">Select-Stocks</label>
+                <div class="col-sm-12">
+                    <select asp-for="ExtraQuantityAddedinStocks.stockid" class="form-control" asp-items=" ViewBag.tradelist">
+                        <option value="">Please select Stock</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label font-weight-bold text-black">Buy Price</label>
+                <input asp-for="ExtraQuantityAddedinStocks.BuyPrice" class="form-control" placeholder="Enter BuyPrice"/>
+                <span asp-validation-for="ExtraQuantityAddedinStocks.BuyPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label font-weight-bold text-black">Total Shares</label>
+                <input asp-for="ExtraQuantityAddedinStocks.TotalShare" class="form-control" />
+                <span asp-validation-for="ExtraQuantityAddedinStocks.TotalShare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label font-weight-bold text-black">Total Investment</label>
+                <input asp-for="ExtraQuantityAddedinStocks.TotalInvestment" class="form-control" />
+                <span asp-validation-for="ExtraQuantityAddedinStocks.TotalInvestment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label font-weight-bold text-black">Month</label>
+                <input asp-for="ExtraQuantityAddedinStocks.Month" class="form-control" />
+                <span asp-validation-for="ExtraQuantityAddedinStocks.Month" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label font-weight-bold text-black">Year</label>
+                <input asp-for="ExtraQuantityAddedinStocks.Year" class="form-control" />
+                <span asp-validation-for="ExtraQuantityAddedinStocks.Year" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                <input type="hidden" asp-for="ExtraQuantityAddedinStocks.StockName" asp-items=" ViewBag.brokerlist" />
+                <input type="hidden" asp-for="ExtraQuantityAddedinStocks.BrokerName" asp-items=" ViewBag.brokerlist" />
+
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Active" class="control-label"></label>
+            <input asp-for="Active" class="form-control" />
+            <span asp-validation-for="Active" class="text-danger"></span>
+        </div>*@
+            @*<div class="form-group">
+            <label asp-for="brokerid" class="control-label"></label>
+            <select asp-for="brokerid" class ="form-control" asp-items="ViewBag.brokerid"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="stockid" class="control-label"></label>
+            <input asp-for="stockid" class="form-control" />
+            <span asp-validation-for="stockid" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+
+

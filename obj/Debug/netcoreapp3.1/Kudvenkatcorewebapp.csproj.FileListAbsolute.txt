@@ -503,7 +503,6 @@ C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcore
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
-C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.csproj.AssemblyReference.cache
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.AssemblyInfoInputs.cache
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.AssemblyInfo.cs
@@ -536,12 +535,14 @@ C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcore
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Btrade\RoughView.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Btrade\ShareCreate.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Btrade\ShareCreateAjax.cshtml.g.cs
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\AllEmployee.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateEmployee.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\CustomErrorPage.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Editemployee.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\EmployeeNotFound.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Example.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\LoanDashBoard\LoanDashBoard.cshtml.g.cs
@@ -561,7 +562,12 @@ C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcore
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_StocksnformationView.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TableEditDeleteView.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\StockAdmin\AddAvgExtraQuantity.cshtml.g.cs
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\StockAdmin\DiviidendInfoList.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\StockAdmin\Index.cshtml.g.cs
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\StockAdmin\_dividendModalPartial.cshtml.g.cs
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\StockAdmin\_showParticalView.cshtml.g.cs
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\StockAdmin\_showProfitLossView.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\StocksDashBoard\StocksDashBoard.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs

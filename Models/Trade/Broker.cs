@@ -10,7 +10,8 @@ namespace Kudvenkatcorewebapp.Models.Trade
         public int? ID { get; set; }
         public string BrokerName { get; set; }
         public int Active { get; set; }
-
+        
         public IEnumerable<Tradeinformation> tradeinformations { get; set; }
+        public IEnumerable<ExtraQuantityAddedinStocks> extraQuantityAddedinStocks { get; set; }
     }
 }

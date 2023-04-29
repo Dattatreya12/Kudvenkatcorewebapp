@@ -26,7 +26,6 @@ namespace Kudvenkatcorewebapp.Controllers
     public class LoanModule : Controller
     {
         private readonly IloanCrudService _iloanCrudService;
-
         private readonly IConfiguration _configurtion;
         private readonly AppDbContext _context;
 
@@ -268,13 +267,6 @@ namespace Kudvenkatcorewebapp.Controllers
 
             return View();
         }
-
-
-
-
-
-
-
 
     }
 }

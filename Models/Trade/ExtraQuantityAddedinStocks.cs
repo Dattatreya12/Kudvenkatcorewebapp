@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Kudvenkatcorewebapp.Models.Trade
 {
-    public class ExtraQuantityAddedinStocks
+    public class  ExtraQuantityAddedinStocks
     {
         public int ID { get; set; }
         public string BrokerName { get; set; }
@@ -16,5 +16,14 @@ namespace Kudvenkatcorewebapp.Models.Trade
         public string Month { get; set; }
         public int Year { get; set; }
         public int Active { get; set; }
+        public int brokerid { get; set; }
+        public int stockid { get; set; }
+        //public string BrokerName { get; set; }
+        public Tradeinformation tradeinformation { get; set; }
+        public Broker broker { get; set; }
     }
+
+
+
+
 }

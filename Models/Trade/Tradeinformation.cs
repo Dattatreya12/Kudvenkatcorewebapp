@@ -15,8 +15,7 @@ namespace Kudvenkatcorewebapp.Models.Trade
         public double Stocksellprice { get; set; }
         public int Stocktotalshares { get; set; }
         [DisplayName("Stock Purchase Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-       
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd-MM-yyyy}")]
         public DateTime? Stockpurchaseddate { get; set; }
 
         [DisplayName("Stock Sell Date")]
@@ -29,5 +28,7 @@ namespace Kudvenkatcorewebapp.Models.Trade
         public string BrokerName { get; set; }
         public double TotalProfit { get; set; }
         public double TotlaLoss { get; set; }
+        public IEnumerable<ExtraQuantityAddedinStocks> extraQuantityAddedinStocks { get; set; }
+        public IEnumerable<Dividend_info> dividend_Infos { get; set; }
     }
 }

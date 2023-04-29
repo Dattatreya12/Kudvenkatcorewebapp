@@ -21,5 +21,6 @@ namespace Kudvenkatcorewebapp.ViewModels
         public List<IFormFile> Photo { get; set; }
         public string Gender { get; set; }
         public string InitialName { get; set; }
+        public int TotalInvestedAmount { get; set; }
     }
 }
