@@ -180,12 +180,22 @@ function AddDividend() {
 // To get the add Extra stocks
 
 //To show Modal Popup
-function Addextrastocks() {
+$('#addextrastocks').click(function () {
+    /*  $("#dividendmodal").modal('show',{ backdrop: 'static', keyboard: false });*/
     var url = "/StockAdmin/Addextrastock";
     $('#myModalBodyDiv1').load(url, function () {
         $('#mymodal1').modal("show");
     })
-}
+   
+
+})
+
+//function Addextrastocks() {
+//    var url = "/StockAdmin/Addextrastock";
+//    $('#myModalBodyDiv1').load(url, function () {
+//        $('#mymodal1').modal("show");
+//    })
+//}
 
 //To close Modal Popup
 $('#extrastockmodalclose').click(function () {

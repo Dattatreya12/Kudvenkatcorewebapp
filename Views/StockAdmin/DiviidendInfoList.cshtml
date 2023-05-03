@@ -1,5 +1,4 @@
-﻿
-@model Dividend_info
+﻿@model Dividend_info
 @*<div class="alert alert-warning alert-dismissible fade show" role="alert" id="sucmsg">
         <strong>Good!</strong> Successfully Inserted Your Data.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -9,8 +8,9 @@
 
 <div class="bg-gradient">
     <button type="button" id="adddividend" class="btn btn-primary m-2">Add Dividend</button>
-    <button id='Addextrastocks' data-toggle="modal" data-target="" class="btn btn-primary m-2" onclick="Addextrastocks();">Add Extra Stock</button>
-    <button id='Adddailyprofitloss' data-toggle="modal" data-target="" class="btn btn-primary m-2" onclick="Adddailyprofitloss();">Add Daily Income/Loss</button>
+    @*<button type="button" id='Addextrastocks' data-toggle="modal" data-target="" class="btn btn-primary m-2" onclick="Addextrastocks();">Add Extra Stock</button>*@
+<button type="button" id="addextrastocks" class="btn btn-primary m-2">Add Extra Stock</button>
+    <button type="button" id='Adddailyprofitloss' data-toggle="modal" data-target="" class="btn btn-primary m-2" onclick="Adddailyprofitloss();">Add Daily Income/Loss</button>
     @*<button type="button" id="addextrastock" class="btn btn-primary m-2"></button>*@
 </div>
 <table class="table table-bordered">
