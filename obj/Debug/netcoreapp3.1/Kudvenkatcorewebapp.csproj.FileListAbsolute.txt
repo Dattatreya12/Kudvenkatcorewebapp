@@ -578,3 +578,4 @@ C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcore
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.dll
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.pdb
 C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.genruntimeconfig.cache
+C:\Users\DAttatreya\OneDrive\Desktop\Downloads\Kudvenkatcorewebapp\Kudvenkatcorewebapp\obj\Debug\netcoreapp3.1\Kudvenkatcorewebapp.csproj.AssemblyReference.cache

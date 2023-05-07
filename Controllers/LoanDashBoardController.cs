@@ -8,11 +8,14 @@ using Kudvenkatcorewebapp.Models;
 using Kudvenkatcorewebapp.Models.Loan;
 using Kudvenkatcorewebapp.Repository.Trade;
 using Kudvenkatcorewebapp.ViewModels.Sangh;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
 namespace Kudvenkatcorewebapp.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class LoanDashBoardController : Controller
     {
         private readonly IConfiguration _configurtion;
@@ -109,8 +112,6 @@ namespace Kudvenkatcorewebapp.Controllers
 
             // MonthlyTrackLoan
             var TrackmonthlyLoan = new List<MonthlyLoanTrack>();
-
-           
 
             var result = (from loanuser in _context.loanEmployees
                                join employee in _context.employees on loanuser.EmployeeId equals employee.Id

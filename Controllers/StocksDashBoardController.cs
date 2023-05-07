@@ -10,10 +10,12 @@ using Kudvenkatcorewebapp.Repository.LoanRepository;
 using Kudvenkatcorewebapp.Repository.Trade;
 using Kudvenkatcorewebapp.Repository.Trade.InterfaceRepo;
 using Kudvenkatcorewebapp.ViewModels.Trade;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kudvenkatcorewebapp.Controllers
 {
+   
     public class StocksDashBoardController : Controller
     {
         const int Extrastocknocount= 1;

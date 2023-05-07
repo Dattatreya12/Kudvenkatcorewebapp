@@ -10,6 +10,7 @@ using Kudvenkatcorewebapp.Models.Loan;
 using Kudvenkatcorewebapp.Models.Trade;
 using Kudvenkatcorewebapp.Repository.LoanRepository;
 using Kudvenkatcorewebapp.Repository.Trade;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Kudvenkatcorewebapp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class StockAdminController : Controller
     {
         public const string V = "Data saved successfully";
@@ -89,7 +91,7 @@ namespace Kudvenkatcorewebapp.Controllers
                 int sngid = 1;
 
                 ViewBag.message = sngid;
-                ViewBag.Result = "Saved Succesfully";
+                ViewBag.Result = V;
 
                 return View();
             }
@@ -239,7 +241,7 @@ namespace Kudvenkatcorewebapp.Controllers
                 int sngid = 1;
 
                 ViewBag.message = sngid;
-                ViewBag.Result = "Saved Succesfully";
+                ViewBag.Result = V;
                 return new JsonResult(new { success = true, message = "your request has been submitted" });
             }
             else
@@ -279,7 +281,7 @@ namespace Kudvenkatcorewebapp.Controllers
                 int sngid = 1;
 
                 ViewBag.message = sngid;
-                ViewBag.Result = "Saved Succesfully";
+                ViewBag.Result = V;
                 return new JsonResult(new { success = true, message = "your request has been submitted" });
             }
             else
