@@ -80,6 +80,7 @@ namespace Kudvenkatcorewebapp.Controllers
                                   t.BuyPrice,
                                   t.TotalShare,
                                   t.TotalInvestment,
+                                  t.Day,
                                   t.Month,
                                   t.Year,
                               }).ToList().Take(stockcount);
@@ -95,6 +96,7 @@ namespace Kudvenkatcorewebapp.Controllers
                         BuyPrice = sharesdata.BuyPrice,
                         TotalShare = sharesdata.TotalShare,
                         TotalInvestment = sharesdata.TotalInvestment,
+                        Day = sharesdata.Day,
                         Month = sharesdata.Month,
                         Year = sharesdata.Year,
                     });
