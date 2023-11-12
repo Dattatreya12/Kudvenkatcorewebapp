@@ -151,6 +151,9 @@ namespace Kudvenkatcorewebapp.Repository.Trade
 
                         if (action == "Insert")
                         {
+                            DateTime day = DateTime.Now;
+                            string dateValue = day.DayOfWeek.ToString();
+
                             // DateTime d = Convert.ToDateTime(extraQuantityAddedinStocks.LoanDate);
                             //string en = loanEmployees.employeesname.ToString();
 
@@ -163,6 +166,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade
                             cmd.Parameters.AddWithValue("@Month", extraQuantityAddedinStocks.Month);
                             cmd.Parameters.AddWithValue("@Year", extraQuantityAddedinStocks.Year);
                             cmd.Parameters.AddWithValue("@Active", 1);
+                            cmd.Parameters.AddWithValue("@Day", dateValue);
                             cmd.Parameters.AddWithValue("@action", "Insert");
                             // cmd.Parameters.AddWithValue("@LoanUserName", "null");
                         }

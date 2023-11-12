@@ -38,6 +38,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
                                   t.BuyPrice,
                                   t.TotalShare,
                                   t.TotalInvestment,
+                                  t.Day,
                                   t.Month,
                                   t.Year,
                               }).ToListAsync();
@@ -53,6 +54,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
                         BuyPrice = sharesdata.BuyPrice,
                         TotalShare = sharesdata.TotalShare,
                         TotalInvestment = sharesdata.TotalInvestment,
+                        Day = sharesdata.Day,
                         Month = sharesdata.Month,
                         Year = sharesdata.Year,
                     });
@@ -80,6 +82,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
                                            t.BuyPrice,
                                            t.TotalShare,
                                            t.TotalInvestment,
+                                           t.Day,
                                            t.Month,
                                            t.Year,
                                        }).OrderByDescending(x => x.Month).Take(5).ToListAsync();
@@ -95,6 +98,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
                                 BuyPrice = sharesdata.BuyPrice,
                                 TotalShare = sharesdata.TotalShare,
                                 TotalInvestment = sharesdata.TotalInvestment,
+                                Day =sharesdata.Day,
                                 Month = sharesdata.Month,
                                 Year = sharesdata.Year,
                             });
@@ -126,6 +130,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
                                            t.BuyPrice,
                                            t.TotalShare,
                                            t.TotalInvestment,
+                                           t.Day,
                                            t.Month,
                                            t.Year,
                                        }).OrderByDescending(x => x.Month).ToListAsync();
@@ -141,6 +146,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
                                 BuyPrice = sharesdata.BuyPrice,
                                 TotalShare = sharesdata.TotalShare,
                                 TotalInvestment = sharesdata.TotalInvestment,
+                                Day = sharesdata.Day,
                                 Month = sharesdata.Month,
                                 Year = sharesdata.Year,
                             });

@@ -255,7 +255,7 @@ namespace Kudvenkatcorewebapp.Controllers
                 smtp.Credentials = networkCredential;
 
                 smtp.Send(message);
-                ViewBag.emailsentmessege = " Email Sent Successfully";
+                ViewBag.emailsentmessege = "Email Sent Successfully";
 
 
                 return View();

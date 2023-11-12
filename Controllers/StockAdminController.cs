@@ -224,7 +224,7 @@ namespace Kudvenkatcorewebapp.Controllers
             else
             {
                 _context.dividend_Infos.AddAsync(datasave);
-                _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
             return new JsonResult(new { success = true, message = "your request has been submitted successfully" }); 
         }
