@@ -33,7 +33,7 @@ namespace Kudvenkatcorewebapp.Controllers
             return View();
         }
 
-<<<<<<< HEAD
+
         public JsonResult GetEmployees(string country)
         {
             var usages = new List<LoanEmployees>();
@@ -89,12 +89,11 @@ namespace Kudvenkatcorewebapp.Controllers
            // return Json(employees, JsonRequestBehavior.AllowGet);
         }
 
+        
+
         public async Task<IActionResult> LoanDashBoardAsync(int pageNumber = 1, int pageSize = 5)
         {
-=======
-        public async Task<IActionResult> LoanDashBoardAsync(int pageNumber = 1, int pageSize = 5)
-        {
->>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
+
             int ExcludeRecords = (pageSize * pageNumber) - pageSize;
             // var loanemmployee =  _context.loanEmployees.Where(x => x.Active == 1).ToList();
             //return brokerlist;
@@ -139,11 +138,10 @@ namespace Kudvenkatcorewebapp.Controllers
                 {
                     int Totalmonthlyamount = sharesdata.TotalloanAmount / sharesdata.Emi;
                     totalsumloan += Totalmonthlyamount;
-<<<<<<< HEAD
+
                     TLA = sharesdata.TotalloanAmount;
 
-=======
->>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
+
 
                     usages.Add(new LoanEmployees()
                     {
