@@ -14,8 +14,6 @@ namespace Kudvenkatcorewebapp.Utilities
            this.AllowedDomain = allowedDomain;
         }
 
-        
-
         public override bool IsValid(object value)
         {
           string[] strings=  value.ToString().Split('@');

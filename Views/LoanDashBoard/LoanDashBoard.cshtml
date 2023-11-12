@@ -1,163 +1,244 @@
 ﻿@model Kudvenkatcorewebapp.ViewModels.Sangh.DashBoardViewModel
 
 
+
+
 @{
     ViewData["Title"] = "LoanDashBoard";
 }
+<style>
+    #loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        background: url('../images/Gear.gif') no-repeat center;
+    }
+</style>
 
-    <div class="bg-gradient">
+<div id="loader" style="display:none;"></div>
 
-        <div class="row m-0">
-            <div class="card col-3 bg-info m-0 border-white shadow-sm">
-                <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-white">Total Collected Loan</h6>
-                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-white">Rs:@Model.TotalSumofLoan</h4>
-                    @*<a href="#" class="card-link">Card link</a>
+<div class="bg-gradient">
+
+    <div class="row m-0">
+        <div class="card col-3 bg-info m-0 border-white shadow-sm">
+            <div class="card-body bg-gradient">
+                <h6 class="card-title text-capitalize bg-info text-white">Total Collected Loan</h6>
+                @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                <h6 class="card-text text-white">Rs:@Model.TotalSumofLoan</h6>
+                @*<a href="#" class="card-link">Card link</a>
                     <a href="#" class="card-link">Another link</a>*@
-                </div>
-            </div>
-
-            <div class="card col-3 bg-info m-0 border-white shadow-sm">
-                <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-white">Number of Loans</h6>
-                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-white">@Model.loanEmployees.Count()</h4>
-                    @*<a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>*@
-                </div>
-            </div>
-
-            <div class="card col-3 bg-info m-0 border-white shadow-sm">
-                <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-white">Total Loan Amount</h6>
-                    <h6 class="card-subtitle mb-2 text-white">Aug-2022</h6>
-                    <h4 class="card-text text-white">Rs:@Model.TotalSumofAmount</h4>
-                    @*<a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>*@
-                </div>
-            </div>
-
-            <div class="card col-3 bg-info m-0 border-white shadow-sm">
-                <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-white">Total Hand Loan</h6>
-                    @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-white">Rs:@Model.TotalSumofHandloanAmount</h4>
-                    @*<a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>*@
-                </div>
             </div>
         </div>
-        <br />
 
-        
-        <div class="row">
-
-            <div class="col-xs-6 col-md-2" style="background-color:#f8f9fa;">
-                <table class="table table-striped bg-white" style="font-size:small;">
-                    <thead class="bg-info text-black">
-                        <tr class="table-info">
-                            <th>LoanDate</th>
-                            <th>Intrest Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.loanEmployeesmonthlyintrestcalculate)
-                        {
-                            <tr>
-                                <td>
-                                    @item.LoanDate.ToString("dd/MM/yyyy")
-                                </td>
-                                <td>
-                                    @item.TotalIntrest
-                                </td>
-                            </tr>
-                        }
-                        </tbody>
-                </table>
+        <div class="card col-3 bg-info m-0 border-white shadow-sm">
+            <div class="card-body bg-gradient">
+                <h6 class="card-title text-capitalize bg-info text-white">Number of Active Loans</h6>
+                @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                <h6 class="card-text text-white">@Model.loanEmployees.Count()</h6>
+                @*<a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>*@
             </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-8" style="background-color:#f8f9fa;" >
-                <h3 class="m-0 bg-success shadow-sm text-white">List of Loans</h3>
-                <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2 bg-white">
-                    <thead class="bg-info text-black">
-                        <tr class="table-info">
-                            <th>LoanId</th>
-                            <th>Loan Date</th>
-                            <th>Name</th>
-                            <th>Monthly Emi Amount</th>
-                            <th>Total Paid Emi</th>
-                            <th>Total Balance Emi</th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.loanEmployees)
-                        {
-                            <tr>
-                                <td>@item.LoanID</td>
-                                <td>@item.LoanDate.ToString("dd/MM/yyyy")</td>
-                                <td>@item.LoanUserName</td>
-                                <td>@item.TotalLoanAmount</td>
-                                <td>@item.TotalPaidEmi</td>
-                                <td>@item.TatlBalanceEmi</td>
-
-                            </tr>
-
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-xs-6 col-md-2" style="background-color:#f8f9fa;" >.col-xs-6 .col-md-4</div>
-
         </div>
 
+        <div class="card col-3 bg-info m-0 border-white shadow-sm">
+            <div class="card-body bg-gradient">
+                <h6 class="card-title text-capitalize bg-info text-white">Total Loan Amount</h6>
+                <h6 class="card-subtitle mb-2 text-white">@DateTime.Now.ToString()</h6>
+                <h6 class="card-text text-white">Rs:@Model.TotalSumofAmount</h6>
+                @*<a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>*@
+            </div>
+        </div>
 
-        <br />
-        <h3 class="m-0 bg-success shadow-sm text-white">List of HandLoans</h3>
-        <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2">
-            <thead class="bg-info text-black">
-                <tr class="table-info">
-                    <th>Name</th>
-                    <th>Hand Loan Amount</th>
-                    <th>Month</th>
-                    <th>Year</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.handLoans)
-                {
+        <div class="card col-3 bg-info m-0 border-white shadow-sm">
+            <div class="card-body bg-gradient">
+                <h6 class="card-title text-capitalize bg-info text-white">Total Hand Loan</h6>
+                @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                <h6 class="card-text text-white">Rs:@Model.TotalSumofHandloanAmount</h6>
+                @*<a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>*@
+            </div>
+        </div>
+    </div>
+    <br />
+
+
+    <div class="row">
+
+        <div class="col-xs-6 col-md-4 ">
+
+            <table class="table table-striped bg-white" style="font-size:small;">
+                <thead class="bg-info text-black">
+                    <tr class="table-info">
+                        <th>LoanDate</th>
+                        <th>Intrest Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.loanEmployeesmonthlyintrestcalculate)
+                    {
+                        <tr>
+                            <td>
+                                @item.LoanDate.ToString("dd/MM/yyyy")
+                            </td>
+                            <td>
+                                @item.TotalIntrest
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
                     <tr>
-                        <td>@item.LoanUserName</td>
-                        <td>@item.HandLoanAmount</td>
-                        <td>@item.Month</td>
-                        <td>@item.Year</td>
+                        <td><b>Toal Intrest:</b></td>
+                        <td><b>@Model.loanEmployeesmonthlyintrestcalculate.Sum(i => i.TotalIntrest)</b></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table class="table table-striped bg-white" style="font-size:small;">
+                <thead class="bg-info text-black">
+                    <tr class="table-info">
+                        <th>Month</th>
+                        <th>Year</th>
+                        <th>Number of Loans</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.loanEmployeesmonthlyLoancount)
+                    {
+                        <tr>
+                            <td>
+                                @item.month
+                            </td>
+                            <td>
+                                @item.year
+                            <td>
+                                @item.toatlloancountmonthly
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+                @*<tfoot>
+                        <tr>
+                            <td><b>Toal Intrest:</b></td>
+                            <td><b>@Model.loanEmployeesmonthlyintrestcalculate.Sum(i => i.TotalIntrest)</b></td>
+                        </tr>
+                    </tfoot>*@
+            </table>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-8" style="font-size:small;" @*style="background-color:#f8f9fa;"*@>
+            <h3 class=" bg-success shadow-sm text-white">
+                List of Loans:
+                <select id="employeeDropDownList" name="employeeDropDownList" class="form-control select2 select2-hidden-accessible"
+                        style="width: 100%;" tabindex="-1" aria-hidden="true">
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </h3>
+            <table id="ld" class="table table-striped text-sm-center mx-auto m-2 bg-white" style="font-size:small;">
+                <thead class="bg-info text-black">
+                    <tr class="table-info">
+                        <th>LoanId</th>
+                        <th>Loan Date</th>
+                        <th>Name</th>
+                        <th>Emi Amount</th>
+                        <th>Paid Emi</th>
+                        <th>Balance Emi</th>
+                        <th>Total EMI</th>
+                        <th>Total Loan</th>
 
 
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.loanEmployees)
+                    {
+                        <tr>
+                            <td>@item.LoanID</td>
+                            <td>@item.LoanDate.ToString("dd/MM/yyyy")</td>
+                            <td>@item.LoanUserName</td>
+                            <td>@item.TotalLoanAmount</td>
+                            <td>@item.TotalPaidEmi</td>
+                            <td>@item.TatlBalanceEmi</td>
+                            <td>@item.TotalEmi</td>
+                            <td>@(item.TotalLoanAmount*item.TotalEmi)</td>
 
-                }
-            </tbody>
-        </table>
+                        </tr>
 
-        <br />
-        <h3 class="m-0 bg-success shadow-sm text-white">Loan Information of @Model.GetCurrenctMonth</h3>
-        <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2">
-            <thead class="bg-info text-black">
-                <tr class="table-info">
-                    <th>Monthly Collected Amount</th>
-                    <th>Total Loan</th>
-                    <th>Total Balance Amount</th>
-                    <th>Month</th>
-                    <th>Year</th>
-                    <th>Total Intrest</th>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>Total Loan:</b></td>
+                        <td><b>@Model.loanEmployees.Sum(i => i.TatlBalanceEmi * i.TotalLoanAmount)</b></td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+
+
+    <br />
+    <h3 class="m-0 bg-success shadow-sm text-white">List of HandLoans</h3>
+    <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2" style="font-size:small;">
+        <thead class="bg-info text-black">
+            <tr class="table-info">
+                <th>Name</th>
+                <th>Hand Loan Amount</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Intrest</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.handLoans)
+            {
+                <tr>
+                    <td>@item.LoanUserName</td>
+                    <td>@item.HandLoanAmount</td>
+                    <td>@item.Month</td>
+                    <td>@item.Year</td>
+                    <td>@item.TotalIntrest</td>
+
+
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.monthlyLoanTracks)
-                {
+
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <h3 class="m-0 bg-success shadow-sm text-white">Loan Information of @Model.GetCurrenctMonth</h3>
+    <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2" style="font-size:small;">
+        <thead class="bg-info text-black">
+            <tr class="table-info">
+                <th>Monthly Collected Amount</th>
+                <th>Total Loan</th>
+                <th>Total Balance Amount</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Total Intrest</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.monthlyLoanTracks)
+            {
                 <tr>
                     <td>@item.MonthlyCollectedAmount</td>
                     <td>@item.TotalLoan</td>
@@ -167,10 +248,15 @@
                     <td>@item.TotalIntrest</td>
                 </tr>
 
-                }
-            </tbody>
-        </table>
+            }
+        </tbody>
+    </table>
+</div>
 
 
-
-    </div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/js/Loaddashboard.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">*@

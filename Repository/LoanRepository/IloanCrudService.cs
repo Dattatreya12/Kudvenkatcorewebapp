@@ -1,5 +1,6 @@
 ﻿using Kudvenkatcorewebapp.Models;
 using Kudvenkatcorewebapp.Models.Loan;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace Kudvenkatcorewebapp.Repository.LoanRepository
         Task<List<Employee>> GetEmployeeName();
         string RandomLoanIDGenerate();
         Task<IEnumerable<MonthlyLoanInformation>> GetLoanInformatiomByLoanID(string LoanID);
+
+        //Task<List<LoanEmployees>> SendMail(string ToMail, IFormFile FileToAttach);
 
     }
 }

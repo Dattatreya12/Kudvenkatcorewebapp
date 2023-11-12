@@ -62,18 +62,7 @@ namespace Kudvenkatcorewebapp
             //    options.Filters.Add(new AuthorizeFilter(policy));
             //}).AddXmlSerializerFormatters();
 
-            //Claim Policy
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("DeleteRolePolicy", policy => policy.RequireClaim("Delete Role"));
-            });
-
-            //Role Policy
-
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("AddAdminPolicy", policy => policy.RequireRole("Admin"));
-            });
+           
 
             services.AddControllersWithViews ();
             services.AddAutoMapper(typeof(Startup));
@@ -87,9 +76,20 @@ namespace Kudvenkatcorewebapp
             services.AddScoped<IProfitLoss, ProfitAndLossRepo>();
             services.AddScoped<ILoanmonthlyintrestcalculate, LoanMonthlyIntrestrepo>();
             services.AddCloudscribePagination();
+            //Claim Policy
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("DeleteRolePolicy", policy => policy.RequireClaim("Delete Role"));
+            });
+
+            //Role Policy
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AddAdminPolicy", policy => policy.RequireRole("Admin"));
+            });
 
 
-            
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         }
@@ -97,13 +97,12 @@ namespace Kudvenkatcorewebapp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
-            //{
-            //    //app.UseStatusCodePagesWithReExecute("/Error/{0}");  // This is already commeneted code
-            //    app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                //app.UseStatusCodePagesWithReExecute("/Error/{0}");  // This is already commeneted code
+                app.UseDeveloperExceptionPage();
 
-
-            //}
+            }
             //else
             //{
             //    app.UseExceptionHandler("/Home/Error");
@@ -113,12 +112,12 @@ namespace Kudvenkatcorewebapp
             //}
 
 
-            app.ConfigureExceptionHandler(env);
+            //app.ConfigureExceptionHandler(env);
             //app.UseMiddleware<ExceptinMiddleware>();
-            
+            app.UseStaticFiles();
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+           
 
             app.UseRouting();
             app.UseAuthentication();

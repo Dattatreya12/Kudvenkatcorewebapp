@@ -14,6 +14,10 @@ using Microsoft.Extensions.Configuration;
 using cloudscribe.Pagination.Models;
 using System.Xml.Linq;
 using Kudvenkatcorewebapp.DTO;
+using Microsoft.AspNetCore.Http;
+using System.Net.Mail;
+using System.Globalization;
+using System.Configuration;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,9 +26,28 @@ namespace Kudvenkatcorewebapp.Controllers
     public class LoanModule : Controller
     {
         private readonly IloanCrudService _iloanCrudService;
-
         private readonly IConfiguration _configurtion;
         private readonly AppDbContext _context;
+
+        string MailBody = "<!DOCTYPE html>" +
+                            "<html> " +
+                                "<body style=\"background-color:#ff7f26;text-align:center;\"> " +
+                                "<h1 style=\"color:#051a80;\"> Wel Come to ML-FINANCE-GROUP </h1>" +
+                                "<h2 style=\"color:#051a80;\"> Please Find Attched File.. </h2>" +
+                                "</body> " +
+                                "<html>";
+
+        
+
+        string mailTitle = DateTime.Now.Month.ToString();
+        string mailSubject = "Monthly Report";
+        
+
+        
+
+
+
+
 
         // GET: /<controller>/
 
@@ -34,6 +57,8 @@ namespace Kudvenkatcorewebapp.Controllers
             this._configurtion = configurtion;
             this._context = context;
         }
+
+        
         public async Task<IActionResult> Index(int pageNumber=1,int pageSize=5)
         {
             int ExcludeRecords = (pageSize * pageNumber) - pageSize;
@@ -161,9 +186,87 @@ namespace Kudvenkatcorewebapp.Controllers
         }
 
 
+        static string getFullName(int month)
+        {
+            return CultureInfo.CurrentCulture.
+                DateTimeFormat.GetMonthName
+                (month);
+        }
+
+        [HttpGet]
+        public IActionResult SendEmail()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SendEmail(string ToMail, IFormFile FileToAttach)
+        {
+            try
+            {
+                //Mail Messege
+
+                // string fromEmail = ConfigurationManager.AppSettings["fromEmail"].ToString();
+                //string password = ConfigurationManager.AppSettings["password"].ToString();
+                string fromEmail = _configurtion.GetValue<string>("mailsettings:fromEmail");
+                string password = _configurtion.GetValue<string>("mailsettings:password");
+
+
+                string MonthReport = getFullName(Convert.ToInt32(mailTitle));
+                string CurrentReport = "Month Report";
+                mailTitle = MonthReport + " " + CurrentReport;
 
 
 
+                //MailMessage message = new MailMessage(new MailAddress(fromEmail, mailTitle), new MailAddress(ToMail));
+                MailMessage message = new MailMessage();
+                message.From = new MailAddress(fromEmail);
+                string[] MultiMail = ToMail.Split(',');
+                foreach (string multimailId in MultiMail)
+                {
+                    message.To.Add(new MailAddress(multimailId));
+                }
+
+
+                //Mail Content
+                //message.Subject = mailSubject;
+                message.Subject = mailTitle;
+                message.Body = MailBody;
+                message.IsBodyHtml = true;
+
+
+                //Attachment
+
+                message.Attachments.Add(new Attachment(FileToAttach.OpenReadStream(), FileToAttach.FileName));
+
+                //Server Details
+                SmtpClient smtp = new SmtpClient();
+                // smtp.Host = "smtp.office365.com";
+                smtp.Host = _configurtion.GetValue<string>("mailsettings:Host");
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                //Credentials
+                System.Net.NetworkCredential networkCredential = new System.Net.NetworkCredential();
+                networkCredential.UserName = fromEmail;
+                networkCredential.Password = password;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = networkCredential;
+
+                smtp.Send(message);
+                ViewBag.emailsentmessege = " Email Sent Successfully";
+
+
+                return View();
+            }
+            catch(Exception ex)
+            {
+               string error= ex.Message;
+            }
+
+            return View();
+        }
 
     }
 }

@@ -8,10 +8,11 @@ namespace Kudvenkatcorewebapp.Repository.Trade
 {
     public interface ITradeshare
     {
-        Task<List<Tradeinformation>> GetTradeInformationList();
+        Task<List<Tradeinformation>> GetTradeInformationList(string name);
         Tradeinformation AddITradeinformation(Tradeinformation tradeinformation);
         Task<Tradeinformation> UpdateITradeinformation(Tradeinformation tradeinformation, int id);
         Task<Tradeinformation> DeleteITradeinformation(int id);
         public double TotalinvestedinAllStocks(int brokerid, string brokername, double investedamount);
+      
     }
 }

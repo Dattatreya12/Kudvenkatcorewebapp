@@ -29,10 +29,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CustomDesign\" />
+    <Folder Include="Models\NewFolder\" />
     <Folder Include="Service\" />
     <Folder Include="Services\" />
     <Folder Include="Views\Shared\Loan\" />
     <Folder Include="Views\Shared\StockAdmin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\serviceshtml\css\style.css.map" />
+    <None Include="wwwroot\serviceshtml\css\style.scss" />
+    <None Include="wwwroot\serviceshtml\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\serviceshtml\js\bootstrap.js" />
+    <None Include="wwwroot\serviceshtml\js\custom.js" />
+    <None Include="wwwroot\serviceshtml\js\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\serviceshtml\js\popper.min.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +61,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
   </ItemGroup>

@@ -30,34 +30,33 @@ namespace Kudvenkatcorewebapp.Models.Loan
 
        
 
-        public async Task<IEnumerable<LoanEmployees>> MonthlyIntrestCalculate()
+        public async Task<IEnumerable<MonthlytotlaLoanCount>> MonthlyIntrestCalculate()
         {
-            var monthlyintrestcalculate = new List<LoanEmployees>();
-
-            using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("Default")))
+            var monthlyintrestcalculate = new List<MonthlytotlaLoanCount>();
+            var data = _appDbContext.loanEmployees.Select(k => new { k.LoanDate.Year, k.LoanDate.Month, k.Id }).GroupBy(x => new { x.Year, x.Month }, (key, group) => new
             {
-                con.Open();
-                string sql = "select LoanDate ,sum(TotalIntrest) As TotalIntrest from [dbo].[loanEmployees] " +
-                              "group by LoanDate";
-                SqlCommand cmd = new SqlCommand(sql, con);
-                using (SqlDataReader sdr = cmd.ExecuteReader())
+                year = key.Year,
+                mnth = key.Month,
+                tCharge = group.Count()
+
+
+            }).ToList().OrderByDescending(x => x.year).ThenByDescending(x => x.mnth).Take(5);
+            if (data?.Any() == true)
+            {
+                foreach (var sharesdata in data)
                 {
-                    while (sdr.Read())
+                    monthlyintrestcalculate.Add(new MonthlytotlaLoanCount()
                     {
-                        LoanEmployees loanemp = new LoanEmployees();
-                        loanemp.LoanDate = Convert.ToDateTime(sdr["LoanDate"]);
-                        loanemp.TotalIntrest = Convert.ToDouble(sdr["TotalIntrest"]);
 
-                        monthlyintrestcalculate.Add(loanemp);
-                    }
+                        year = sharesdata.year,
+                        month = sharesdata.mnth,
+                        toatlloancountmonthly = sharesdata.tCharge,
+
+                    });
                 }
-                con.Close();
             }
-             return  monthlyintrestcalculate;
 
-          
-
-
+            return monthlyintrestcalculate;
         }
 
         public async Task<IEnumerable<LoanEmployees>> MonthlyIntrestCalculatebyEntityframework()
@@ -65,20 +64,14 @@ namespace Kudvenkatcorewebapp.Models.Loan
             var monthlyintrestcalculate = new List<LoanEmployees>();
             try
             {
-                //var result1= from r in _appDbContext.loanEmployees group r by r.LoanDate into g 
-                //             select new
-                //             {
-                //                loanddate= g.Key,
-                //                Totalloan=g.Sum(x=>x.TotalIntrest)
-                                 
-                //             }
-               
-                var result = await _appDbContext.loanEmployees.GroupBy(x => x.LoanDate)
+                //var result = await _appDbContext.loanEmployees.GroupBy(x => x.LoanDate)
+                var dt = "10/11/2022";
+                     var result = await _appDbContext.loanEmployees.Where(x=>x.LoanDate>=Convert.ToDateTime(dt)).GroupBy(x => x.LoanDate)
                     .Select(g => new
                     {
                         loandate = g.Key,
                         TotalIntrest = g.Sum(x => x.TotalIntrest),
-                    }).ToListAsync();
+                    }).OrderByDescending(x=>x.loandate.Year).ToListAsync();
 
                 if (result?.Any() == true)
                 {
@@ -89,6 +82,7 @@ namespace Kudvenkatcorewebapp.Models.Loan
 
                             TotalIntrest = sharesdata.TotalIntrest,
                             LoanDate = sharesdata.loandate,
+
                         });
                     }
                 }

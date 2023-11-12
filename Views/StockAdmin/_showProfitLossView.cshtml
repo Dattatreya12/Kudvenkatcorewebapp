@@ -1,0 +1,61 @@
+﻿@model Kudvenkatcorewebapp.Models.Loan.AddProfitLoss
+@*
+    For more information on enabling Kudvenkatcorewebapp.Models.Trade for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+
+<div class="row bg-light">
+    <div class="col-md-12 bg-info">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        @*<div class="form-group row">
+            <label class="col-sm-6 col-form-label font-weight-bold text-black">Select-Brokers</label>
+            <div class="col-sm-12">
+                <select asp-for="ExtraQuantityAddedinStocks.brokerid" class="form-control" asp-items=" ViewBag.brokerlist" id="brokerid">
+                    <option value="">Please select Broker</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label font-weight-bold text-black">Select-Stocks</label>
+            <div class="col-sm-12">
+                <select asp-for="ExtraQuantityAddedinStocks.stockid" class="form-control" asp-items=" ViewBag.tradelist" id="id">
+                    <option value="">Please select Stock</option>
+                </select>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <label class="control-label font-weight-bold text-black">Option</label>
+            <input asp-for="Option" class="form-control" autocomplete="off" id="option" />
+            <span asp-validation-for="Option" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label font-weight-bold text-black">Income/Loss</label>
+            <input asp-for="IncomeLoss" class="form-control" id="incomeloss" autocomplete="off" />
+            <span asp-validation-for="IncomeLoss" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label font-weight-bold text-black">Created date</label>
+            <input type="date" asp-for="Createat" class="form-control" id="createat" />
+            <span asp-validation-for="Createat" class="text-danger"></span>
+        </div>
+
+      
+
+        
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" id="btnsubmit" onclick="AddDailyIncomeLoss();" />
+        </div>
+
+    </div>
+</div>
+
+

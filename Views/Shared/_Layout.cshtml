@@ -6,15 +6,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Kudvenkatcorewebapp</title>
+    <title>@ViewData["Title"] ML-FINANACE-GROUP</title>
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <script src="~/lib/jquery/jquery.min.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
         <script src="~/lib/jquery-validate/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
     </environment>
     <environment exclude="Development">
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </environment>
@@ -23,107 +29,117 @@
 </head>
 <body>
 
-    @*<header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kudvenkatcorewebapp</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">Create Employee</a>
-                            </li>
+    <div id="preloader"></div>
 
-                        </ul>
+    <div id="laodcontent">
 
-                            <ul class="nav navbar-nav navbar-right">
+        @*<header>
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                    <div class="container">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kudvenkatcorewebapp</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                            <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register Employee</a></li>
-                                <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">Create Employee</a>
+                                </li>
+
                             </ul>
 
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register Employee</a></li>
+                                    <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                </ul>
+
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </header>*@
+                </nav>
+            </header>*@
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand btn btn-outline-light btn-lg px-5 font-weight-bold" asp-area="" asp-controller="Presentation" asp-action="Index">ML-FINANCE-GROUP</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-                <ul class="navbar-nav">
+                    <ul class="navbar-nav">
 
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Presentation" asp-action="Index">Home</a>
-                    </li>
-                    @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
-                    {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">New Employee</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Presentation" asp-action="Index">Home</a>
                         </li>
-                    }
 
-                    @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Manage
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" asp-controller="Administration" asp-action="ListOfUsers">Users</a>
-                                <a class="dropdown-item" asp-controller="Administration" asp-action="ListOfRoles">Roles</a>
-                            </div>
-                        </li>
-                    }
-
-                    @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
-                    {
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        List Of Data
-                    </a>
-
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" asp-controller="StocksDashBoard" asp-action="StocksDashBoard">Stocks</a>
-                        <a class="dropdown-item" asp-controller="LoanDashBoard" asp-action="LoanDashBoard">Sangha</a>
-                    </div>
-                </li>
-                    }
-
-                </ul>
-
-                
-                    @*<ul class="navbar-nav">
-                @if (_signInManager.IsSignedIn(User))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    @if (User.IsInRole("Admin"))
-                    {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">New Employee</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Presentation" asp-action="Services">Services</a>
                         </li>
+
+
+                        @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">New Employee</a>
+                            </li>
                         }
-                    }
-            </ul>*@
+
+                        @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Manage
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Administration" asp-action="ListOfUsers">Users</a>
+                                    <a class="dropdown-item" asp-controller="Administration" asp-action="ListOfRoles">Roles</a>
+                                </div>
+                            </li>
+                        }
+
+                        @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    DATA
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="StocksDashBoard" asp-action="StocksDashBoard">Stocks</a>
+                                    <a class="dropdown-item" asp-controller="LoanDashBoard" asp-action="LoanDashBoard">Sangha</a>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+
+
+                    @*<ul class="navbar-nav">
+                            @if (_signInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">New Employee</a>
+                                    </li>
+                                    }
+                                }
+                        </ul>*@
                     <ul class="navbar-nav ml-auto">
                         @if (_signInManager.IsSignedIn(User))
                         {
@@ -134,57 +150,85 @@
                                     </button>
                                 </form>
                             </li>
-                        }
-                        else
-                        {
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">SignUp</a>
 
                             </li>
+                        }
+                        else
+                        {
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                <a class="nav-link btn btn-outline-primary btn-lg px-5" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
 
                             </li>
                         }
                     </ul>
                     @*<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>*@
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>*@
 
                 </div>
-        </div>
-    </nav>
+            </div>
+        </nav>
 
-    <div class="container-fluid m-1">
-        @*<main role="main" class="pb-3">*@
-        <main role="main">
-            @RenderBody()
-        </main>
+        <div class="container-fluid m-1">
+            @*<main role="main" class="pb-3">*@
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+
+        <br />
+        <br />
+
+        <footer class="border-top footer text-muted m-1">
+            <div class="container-fluid">
+                &copy; 2023 - ML-FINANCE-GROUP <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#laodcontent").fadeIn(2000);
+        })
 
-    <footer class="border-top footer text-muted m-1">
-        <div class="container-fluid">
-            &copy; 2021 - Kudvenkatcorewebapp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
 
+        var loader = document.getElementById('preloader');
+        window.addEventListener("load", function () {
+            setTimeout(removeLoader, 2000);
+            //loader.style.display = "none";
+        });
+
+        function removeLoader() {
+            $("#preloader").fadeOut(500, function () {
+                // fadeOut complete. Remove the loading div
+                $("#preloader").remove(); //makes page more lightweight
+            });
+        }
+
+
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
     @if (IsSectionDefined("Scripts"))
     {
         @RenderSection("Scripts", required: true)
     }
+
 </body>
 </html>

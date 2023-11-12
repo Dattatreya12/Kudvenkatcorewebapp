@@ -1,6 +1,7 @@
 ﻿using Kudvenkatcorewebapp.DBContext;
 using Kudvenkatcorewebapp.Models;
 using Kudvenkatcorewebapp.Models.Loan;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -47,5 +48,7 @@ namespace Kudvenkatcorewebapp.Repository.LoanRepository
         {
             return _iloanCrud.RandomLoanIDGenerate();
         }
+
+        
     }
 }

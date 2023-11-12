@@ -8,11 +8,14 @@ using Kudvenkatcorewebapp.Models;
 using Kudvenkatcorewebapp.Models.Loan;
 using Kudvenkatcorewebapp.Repository.Trade;
 using Kudvenkatcorewebapp.ViewModels.Sangh;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
 namespace Kudvenkatcorewebapp.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class LoanDashBoardController : Controller
     {
         private readonly IConfiguration _configurtion;
@@ -33,16 +36,75 @@ namespace Kudvenkatcorewebapp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> LoanDashBoardAsync()
+        public JsonResult GetEmployees(string country)
         {
+            var usages = new List<LoanEmployees>();
+            double totalsumloan = 0;
+            double TLA = 0;
+            double sumofhandloancalculation = 0;
+            // int monthlyFivehundred = 8000;
+            int monthlyFivehundred = 11500;
+            //NorthwindEntities entities = new NorthwindEntities();
+            //var year = _context.loanEmployees.c.Value.Year.ToString();
+            var employees = (from l in _context.loanEmployees
+                                             join employee in _context.employees on l.EmployeeId equals employee.Id
+                                             where l.LoanDate.Year.ToString() == country && l.Active==1 orderby l.LoanDate descending
+                             select new 
+                                        {
+                                            loanId = l.LoanID,
+                                            name = employee.Name,
+                                            TotalloanAmount = l.TotalLoanAmount,
+                                            Emi = l.TotalEmi,
+                                            TotalPaidEmi = l.TotalPaidEmi,
+                                            TotalBalanceEmi = l.TatlBalanceEmi,
+                                            LoanDate = l.LoanDate
+                                        }).ToList();
 
+            if (employees?.Any() == true)
+            {
+                foreach (var sharesdata in employees)
+                {
+                    int Totalmonthlyamount = sharesdata.TotalloanAmount / sharesdata.Emi;
+                    totalsumloan += Totalmonthlyamount;
+                    TLA = sharesdata.TotalloanAmount;
+                    //var dateAndTime = DateTime.Now;
+                   
+                    var dateValue1 = sharesdata.LoanDate;
+                    DateTime date = dateValue1.Date;
+
+
+                    usages.Add(new LoanEmployees()
+                    {
+                        LoanID = sharesdata.loanId,
+                        LoanUserName = sharesdata.name,
+                        TotalLoanAmount = Totalmonthlyamount,
+                        TotalEmi = sharesdata.Emi,
+                        TotalPaidEmi = sharesdata.TotalPaidEmi,
+                        TatlBalanceEmi = sharesdata.TotalBalanceEmi,
+                        LoanDate = date,
+                    });
+                }
+
+            }
+
+            return new JsonResult(usages);
+           // return Json(employees, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<IActionResult> LoanDashBoardAsync(int pageNumber = 1, int pageSize = 5)
+        {
+            int ExcludeRecords = (pageSize * pageNumber) - pageSize;
             // var loanemmployee =  _context.loanEmployees.Where(x => x.Active == 1).ToList();
             //return brokerlist;
             DateTime currentmonth = DateTime.Now;
          
             double totalsumloan = 0;
+
+            //Total Loan Amount
+            double TLA = 0;
             double sumofhandloancalculation = 0;
-            int monthlyFivehundred = 8000;
+           // int monthlyFivehundred = 8000;
+            int monthlyFivehundred = 11500;
             //Handloan List
             var Listhandloan = new List<HandLoan>();
             //LoanList
@@ -50,7 +112,7 @@ namespace Kudvenkatcorewebapp.Controllers
 
             // MonthlyTrackLoan
             var TrackmonthlyLoan = new List<MonthlyLoanTrack>();
-            
+
             var result = (from loanuser in _context.loanEmployees
                                join employee in _context.employees on loanuser.EmployeeId equals employee.Id
                                where loanuser.Active == 1 orderby loanuser.LoanDate descending
@@ -73,19 +135,21 @@ namespace Kudvenkatcorewebapp.Controllers
                 {
                     int Totalmonthlyamount = sharesdata.TotalloanAmount / sharesdata.Emi;
                     totalsumloan += Totalmonthlyamount;
-                  
-                   
+                    TLA = sharesdata.TotalloanAmount;
+
 
                     usages.Add(new LoanEmployees()
                     {
                         LoanID = sharesdata.loanId,
                         LoanUserName = sharesdata.name,
                         TotalLoanAmount = Totalmonthlyamount,
+                        TotalEmi=sharesdata.Emi,
                         TotalPaidEmi = sharesdata.TotalPaidEmi,
                         TatlBalanceEmi = sharesdata.TotalBalanceEmi,
                         LoanDate =sharesdata.LoanDate,
+                        
 
-                    }); ;
+                    }); 
                 }
                 
             }
@@ -100,6 +164,7 @@ namespace Kudvenkatcorewebapp.Controllers
                                HandLoanAmount=HandLoan.HandLoanAmount,
                                Month=HandLoan.Month,
                                Year=HandLoan.Year,
+                               Intrest=HandLoan.TotalIntrest,
 
                            }).ToList();
 
@@ -114,6 +179,7 @@ namespace Kudvenkatcorewebapp.Controllers
                         HandLoanAmount = hl.HandLoanAmount,
                         Month = hl.Month,
                         Year = hl.Year,
+                        TotalIntrest = hl.Intrest
                     });
                    
                 }
@@ -122,7 +188,7 @@ namespace Kudvenkatcorewebapp.Controllers
             //calculating MonthlyRemainingAmount
             
             var BalanceAmount = (from ba in _context.LoanTracks
-                                 where ba.Month == currentmonth.ToString("MMMM") && ba.Active==1
+                                 where ba.Month == currentmonth.ToString("MMM") && ba.Active==1
                                  select new
                                  {
                                      TotalBalanceAmountinPreviousMonth = ba.TotalBalanceAmount
@@ -133,7 +199,7 @@ namespace Kudvenkatcorewebapp.Controllers
 
             // Monthly Track List 
             var monthlyTrack = (from mt in _context.LoanTracks
-                                where mt.Month == currentmonth.ToString("MMMM")
+                                where mt.Month == currentmonth.ToString("MMM")
                                 select new
                                 {
                                     monthlycollectedAmount = mt.MonthlyCollectedAmount,
@@ -157,7 +223,8 @@ namespace Kudvenkatcorewebapp.Controllers
 
 
             // group by calculating monthly salary
-            //IEnumerable<LoanEmployees> calculatemonthly = await _loanmonthlyintrest.MonthlyIntrestCalculate();
+            IEnumerable<MonthlytotlaLoanCount> calculatemonthly = (IEnumerable<MonthlytotlaLoanCount>)await _loanmonthlyintrest.MonthlyIntrestCalculate();
+            //IEnumerable<LoanEmployees> calculatemonthly = (IEnumerable<LoanEmployees>)enumerable;
             IEnumerable<LoanEmployees> calculatemonthlyentityframework = await _loanmonthlyintrest.MonthlyIntrestCalculatebyEntityframework();
 
             //overall Data Passing into the view Model
@@ -171,8 +238,10 @@ namespace Kudvenkatcorewebapp.Controllers
                 TotalSumofHandloanAmount = sumofhandloancalculation,
                 monthlyLoanTracks = TrackmonthlyLoan,
                 GetCurrenctMonth = currentmonth.ToString("MMMM"),
-                //loanEmployeesmonthlyintrestcalculate = calculatemonthly,
+                loanEmployeesmonthlyLoancount = calculatemonthly,
                 loanEmployeesmonthlyintrestcalculate = calculatemonthlyentityframework,
+                TotalLoanAmount=TLA,
+
             };
 
             return View(DashBoradViewModel);

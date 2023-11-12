@@ -25,8 +25,11 @@ namespace Kudvenkatcorewebapp.ViewModels.Trade
         public double Totalloss { get; set; }
         public double Loss { get; set; }
         public int  Year { get; set; }
-
+        public int? Totalsharecount { get; set; }
+        public int? Totaladdedextrastocks { get; set; }
+        public double TotalinvestAmountInYear { get; set; }
         public IEnumerable<LoanEmployees> loanEmployees { get; set; }
+
 
 
 

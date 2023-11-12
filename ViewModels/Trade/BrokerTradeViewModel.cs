@@ -10,8 +10,12 @@ namespace Kudvenkatcorewebapp.ViewModels.Trade
     public class BrokerTradeViewModel:Broker
     {
         public Tradeinformation tradeinformation { get; set; }
+        public ExtraQuantityAddedinStocks ExtraQuantityAddedinStocks { get; set; }
+        public IEnumerable<Tradeinformation> trade { get; set; }
         public IEnumerable<Broker> brokers { get; set; }
         public int Brokerid { get; set; }
+
+        public int stockid { get; set; }
         
         public IEnumerable<SelectListItem> GetDropdownList(IEnumerable<Broker> brokers)
         {
@@ -34,9 +38,6 @@ namespace Kudvenkatcorewebapp.ViewModels.Trade
 
             return blist;
         }
-        
-        
-    
     }
 }
   
