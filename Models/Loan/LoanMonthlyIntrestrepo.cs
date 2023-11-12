@@ -59,9 +59,26 @@ namespace Kudvenkatcorewebapp.Models.Loan
             var monthlyintrestcalculate = new List<LoanEmployees>();
             try
             {
+<<<<<<< HEAD
                 //var result = await _appDbContext.loanEmployees.GroupBy(x => x.LoanDate)
                 var dt = "10/11/2023";
                      var result = await _appDbContext.loanEmployees.Where(x=>x.LoanDate>=Convert.ToDateTime(dt)).GroupBy(x => x.LoanDate)
+=======
+                //var result1 = from r in _appDbContext.loanEmployees
+                //              group r by r.LoanDate into g
+                //              select new
+                //              {
+                //                  loanddate = g.Key,
+                //                  Totalloan = g.Sum(x => x.TotalIntrest)
+
+                //              };
+
+                
+
+
+
+                var result = await _appDbContext.loanEmployees.GroupBy(x => x.LoanDate)
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
                     .Select(g => new
                     {
                         loandate = g.Key,

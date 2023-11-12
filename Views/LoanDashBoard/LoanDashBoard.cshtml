@@ -18,10 +18,15 @@
     }
 </style>
 
+<<<<<<< HEAD
 <div id="loader" style="display:none;"></div>
 
 <div class="bg-gradient">
 
+=======
+<div class="bg-gradient">
+
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
     <div class="row m-0">
         <div class="card col-3 bg-info m-0 border-white shadow-sm">
             <div class="card-body bg-gradient">
@@ -46,7 +51,11 @@
         <div class="card col-3 bg-info m-0 border-white shadow-sm">
             <div class="card-body bg-gradient">
                 <h6 class="card-title text-capitalize bg-info text-white">Total Loan Amount</h6>
+<<<<<<< HEAD
                 <h6 class="card-subtitle mb-2 text-white">@DateTime.Now.ToString()</h6>
+=======
+                <h6 class="card-subtitle mb-2 text-white">SepMonth-2022</h6>
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
                 <h6 class="card-text text-white">Rs:@Model.TotalSumofAmount</h6>
                 @*<a href="#" class="card-link">Card link</a>
                     <a href="#" class="card-link">Another link</a>*@
@@ -69,7 +78,10 @@
     <div class="row">
 
         <div class="col-xs-6 col-md-4 ">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
             <table class="table table-striped bg-white" style="font-size:small;">
                 <thead class="bg-info text-black">
                     <tr class="table-info">
@@ -87,6 +99,7 @@
                             <td>
                                 @item.TotalIntrest
                             </td>
+<<<<<<< HEAD
 
                         </tr>
                     }
@@ -131,10 +144,16 @@
                             <td><b>@Model.loanEmployeesmonthlyintrestcalculate.Sum(i => i.TotalIntrest)</b></td>
                         </tr>
                     </tfoot>*@
+=======
+                        </tr>
+                    }
+                </tbody>
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
             </table>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-8" style="font-size:small;" @*style="background-color:#f8f9fa;"*@>
+<<<<<<< HEAD
             <h3 class=" bg-success shadow-sm text-white">
                 List of Loans:
                 <select id="employeeDropDownList" name="employeeDropDownList" class="form-control select2 select2-hidden-accessible"
@@ -144,16 +163,26 @@
                 </select>
             </h3>
             <table id="ld" class="table table-striped text-sm-center mx-auto m-2 bg-white" style="font-size:small;">
+=======
+            <h3 class=" bg-success shadow-sm text-white">List of Loans</h3>
+            <table class="table table-striped text-sm-center mx-auto m-2 bg-white" style="font-size:small;">
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
                 <thead class="bg-info text-black">
                     <tr class="table-info">
                         <th>LoanId</th>
                         <th>Loan Date</th>
                         <th>Name</th>
+<<<<<<< HEAD
                         <th>Emi Amount</th>
                         <th>Paid Emi</th>
                         <th>Balance Emi</th>
                         <th>Total EMI</th>
                         <th>Total Loan</th>
+=======
+                        <th>Monthly Emi Amount</th>
+                        <th>Total Paid Emi</th>
+                        <th>Total Balance Emi</th>
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
 
 
                     </tr>
@@ -168,13 +197,17 @@
                             <td>@item.TotalLoanAmount</td>
                             <td>@item.TotalPaidEmi</td>
                             <td>@item.TatlBalanceEmi</td>
+<<<<<<< HEAD
                             <td>@item.TotalEmi</td>
                             <td>@(item.TotalLoanAmount*item.TotalEmi)</td>
+=======
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
 
                         </tr>
 
                     }
                 </tbody>
+<<<<<<< HEAD
                 <tfoot>
                     <tr>
                         <td></td>
@@ -191,6 +224,13 @@
             </table>
         </div>
 
+=======
+            </table>
+        </div>
+
+
+
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
     </div>
 
 
@@ -251,6 +291,7 @@
             }
         </tbody>
     </table>
+<<<<<<< HEAD
 </div>
 
 
@@ -260,3 +301,9 @@
 <script src="~/js/Loaddashboard.js"></script>
 @*<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">*@
+=======
+
+
+
+</div>
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
