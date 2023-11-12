@@ -43,11 +43,11 @@ namespace Kudvenkatcorewebapp.Controllers
             double TLA = 0;
             double sumofhandloancalculation = 0;
             // int monthlyFivehundred = 8000;
-<<<<<<< HEAD
+
             int monthlyFivehundred = 11500;
-=======
+
             int monthlyFivehundred = 25000;
->>>>>>> dk
+
             //NorthwindEntities entities = new NorthwindEntities();
             //var year = _context.loanEmployees.c.Value.Year.ToString();
             var employees = (from l in _context.loanEmployees
@@ -95,11 +95,7 @@ namespace Kudvenkatcorewebapp.Controllers
            // return Json(employees, JsonRequestBehavior.AllowGet);
         }
 
-<<<<<<< HEAD
-=======
-        
 
->>>>>>> dk
         public async Task<IActionResult> LoanDashBoardAsync(int pageNumber = 1, int pageSize = 5)
         {
 
