@@ -1,0 +1,120 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  margin:4px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 98%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.imageThumbnail{
+    height:200px;
+    width:auto;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-display: unset;
+    font-weight: bold;
+    font-size: larger;
+}
+/*.bor {
+    float: left;
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    background: #ffffff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+    -moz-box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+    box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+}*/
+
+
+#preloader {
+  
+    background: #000 url('../images/Gear.gif') no-repeat center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.option1 {
+    background-color: #0366d6;
+    border: 1px solid #e5e5e5;
+    color: #fff;
+}
+    .option1:hover {
+        background-color: transparent;
+        color: #0366d6;
+    }

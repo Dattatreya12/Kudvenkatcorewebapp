@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {}
+    "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {}
   },
   "projects": {
-    "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {
+    "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
+        "projectUniqueName": "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
         "projectName": "Kudvenkatcorewebapp",
-        "projectPath": "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
-        "packagesPath": "C:\\Users\\Dattatreya\\.nuget\\packages\\",
-        "outputPath": "G:\\DotNetCoreApplication\\CoreApp\\KudVenkat\\Kudvenkatcorewebapp\\obj\\",
+        "projectPath": "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
+        "packagesPath": "C:\\Users\\DAttatreya\\.nuget\\packages\\",
+        "outputPath": "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dattatreya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DAttatreya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -110,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.419\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }
