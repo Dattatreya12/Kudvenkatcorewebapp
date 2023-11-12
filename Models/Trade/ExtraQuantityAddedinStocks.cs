@@ -13,6 +13,7 @@ namespace Kudvenkatcorewebapp.Models.Trade
         public double BuyPrice { get; set; }
         public int TotalShare { get; set; }
         public double TotalInvestment { get; set; }
+        public string Day { get; set; }
         public string Month { get; set; }
         public int Year { get; set; }
         public int Active { get; set; }
