@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿using Kudvenkatcorewebapp.Models.Loan;
 using Kudvenkatcorewebapp.Models.Trade;
+=======
+﻿using Kudvenkatcorewebapp.Models.Trade;
+>>>>>>> dk
 using Kudvenkatcorewebapp.ViewModels.Trade;
 using System;
 using System.Collections.Generic;
@@ -12,11 +16,19 @@ namespace Kudvenkatcorewebapp.Repository.Trade
     {
         //First 2 methods are same
         int AddExtraQuantity(ExtraQuantityAddedinStocks extraQuantityAddedinStocks, string action);
+<<<<<<< HEAD
         int AddProfitandLoss(AddProfitLoss addProfitLoss, string action);
         Task<IEnumerable<Broker>> GetAllBrokerListusingIenumerable();
         Task<IEnumerable<Tradeinformation>> GetAllstockListusingIenumerable();
         Task<List<Broker>>GetAllBrokerList();
         Task<Broker> Add(Broker broker);
+=======
+        Task<IEnumerable<Broker>> GetAllBrokerListusingIenumerable();
+        Task<IEnumerable<Tradeinformation>> GetAllstockListusingIenumerable();
+          Task<List<Broker>>GetAllBrokerList();
+
+          Task<Broker> Add(Broker broker);
+>>>>>>> dk
     }
 
    

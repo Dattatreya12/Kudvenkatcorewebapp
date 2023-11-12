@@ -64,7 +64,10 @@ namespace Kudvenkatcorewebapp.Controllers
         [HttpGet]
         public JsonResult Getsearchwithstocks(int stockcount)
         {
+<<<<<<< HEAD
           
+=======
+>>>>>>> dk
 
             var ExtraStocks = new List<ExtraQuantityAddedinStocks>();
             var query = (from t in appDbContext.ExtraQuantityAddedinStocks
@@ -100,9 +103,13 @@ namespace Kudvenkatcorewebapp.Controllers
                     });
                 }
             }
+<<<<<<< HEAD
             // return ExtraStocks;
             //ViewData["count"] = stockcount;
             //ViewBag.count = stockcount;
+=======
+           // return ExtraStocks;
+>>>>>>> dk
             return new JsonResult(ExtraStocks);
         }
         public async Task<IActionResult> StocksDashBoard()
@@ -129,10 +136,15 @@ namespace Kudvenkatcorewebapp.Controllers
 
             // Total stocks 
             string name = "";
+<<<<<<< HEAD
             //int extrasharecount = 1;
             IEnumerable<Tradeinformation> sharelist = await _tradeinformation.GetTradeInformationList(stock);
             IEnumerable<ExtraQuantityAddedinStocks> ExtrastocksInfo = await _iextraStocks.GetTradeInformationList(Extrastocknocount);
             IEnumerable<ExtraQuantityAddedinStocks> Extrastockscount = await _iextraStocks.GetTradeInformationList(Extrastockcount);
+=======
+            IEnumerable<Tradeinformation> sharelist = await _tradeinformation.GetTradeInformationList(stock);
+            IEnumerable<ExtraQuantityAddedinStocks> ExtrastocksInfo = await _iextraStocks.GetTradeInformationList();
+>>>>>>> dk
             //return View(sharelist);
 
             foreach (var i in sharelist)
@@ -158,7 +170,11 @@ namespace Kudvenkatcorewebapp.Controllers
             int Totalsharecount = sharelist.Count();
 
             // Total count of extra stocks
+<<<<<<< HEAD
             int Totalextrashare = Extrastockscount.Count();
+=======
+            int Totalextrashare = ExtrastocksInfo.Count();
+>>>>>>> dk
 
             // Total Profi and Loss Returning 
 

@@ -180,12 +180,17 @@ function AddDividend() {
 // To get the add Extra stocks
 
 //To show Modal Popup
+<<<<<<< HEAD
 $('#addextrastocks').click(function () {
     /*  $("#dividendmodal").modal('show',{ backdrop: 'static', keyboard: false });*/
+=======
+function Addextrastocks() {
+>>>>>>> dk
     var url = "/StockAdmin/Addextrastock";
     $('#myModalBodyDiv1').load(url, function () {
         $('#mymodal1').modal("show");
     })
+<<<<<<< HEAD
    
 
 })
@@ -196,6 +201,9 @@ $('#addextrastocks').click(function () {
 //        $('#mymodal1').modal("show");
 //    })
 //}
+=======
+}
+>>>>>>> dk
 
 //To close Modal Popup
 $('#extrastockmodalclose').click(function () {
@@ -238,6 +246,7 @@ function Addextrastock() {
         }
     })
 }
+<<<<<<< HEAD
 
 ////// Add Income Loss ////////////////////////
 function Adddailyprofitloss() {
@@ -285,3 +294,5 @@ function AddDailyIncomeLoss() {
         }
     })
 }
+=======
+>>>>>>> dk

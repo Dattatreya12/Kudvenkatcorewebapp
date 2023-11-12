@@ -107,6 +107,7 @@ body {
     width: 100%;
     position: fixed;
     z-index: 100;
+<<<<<<< HEAD
 }
 
 .option1 {
@@ -118,3 +119,6 @@ body {
         background-color: transparent;
         color: #0366d6;
     }
+=======
+}
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12

@@ -35,7 +35,10 @@ namespace Kudvenkatcorewebapp.ViewModels.Sangh
         }
 
         
+<<<<<<< HEAD
 
+=======
+>>>>>>> dk
 
     }
 }

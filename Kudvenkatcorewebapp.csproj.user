@@ -14,8 +14,17 @@
     <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_DbContextTypeFullName>Kudvenkatcorewebapp.DBContext.AppDbContext</WebStackScaffolding_DbContextTypeFullName>
+<<<<<<< HEAD
+    <NameOfLastUsedPublishProfile>C:\Datta\KudVenkatBackUp\Kudvenkatcorewebapp\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
+    <View_SelectedScaffolderID>RazorViewScaffolder</View_SelectedScaffolderID>
+    <View_SelectedScaffolderCategoryPath>root/Common/MVC/View</View_SelectedScaffolderCategoryPath>
+=======
     <NameOfLastUsedPublishProfile>CustomProfile3</NameOfLastUsedPublishProfile>
+<<<<<<< HEAD
     <View_SelectedScaffolderID>RazorViewEmptyScaffolder</View_SelectedScaffolderID>
     <View_SelectedScaffolderCategoryPath>root/Common/MVC/View</View_SelectedScaffolderCategoryPath>
+=======
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
+>>>>>>> dk
   </PropertyGroup>
 </Project>

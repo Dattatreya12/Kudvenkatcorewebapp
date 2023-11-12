@@ -43,7 +43,11 @@ namespace Kudvenkatcorewebapp.Controllers
             double TLA = 0;
             double sumofhandloancalculation = 0;
             // int monthlyFivehundred = 8000;
+<<<<<<< HEAD
             int monthlyFivehundred = 11500;
+=======
+            int monthlyFivehundred = 25000;
+>>>>>>> dk
             //NorthwindEntities entities = new NorthwindEntities();
             //var year = _context.loanEmployees.c.Value.Year.ToString();
             var employees = (from l in _context.loanEmployees
@@ -91,8 +95,14 @@ namespace Kudvenkatcorewebapp.Controllers
            // return Json(employees, JsonRequestBehavior.AllowGet);
         }
 
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> dk
         public async Task<IActionResult> LoanDashBoardAsync(int pageNumber = 1, int pageSize = 5)
         {
+
             int ExcludeRecords = (pageSize * pageNumber) - pageSize;
             // var loanemmployee =  _context.loanEmployees.Where(x => x.Active == 1).ToList();
             //return brokerlist;
@@ -104,7 +114,7 @@ namespace Kudvenkatcorewebapp.Controllers
             double TLA = 0;
             double sumofhandloancalculation = 0;
            // int monthlyFivehundred = 8000;
-            int monthlyFivehundred = 11500;
+            int monthlyFivehundred = 25000;
             //Handloan List
             var Listhandloan = new List<HandLoan>();
             //LoanList
@@ -136,6 +146,10 @@ namespace Kudvenkatcorewebapp.Controllers
                     int Totalmonthlyamount = sharesdata.TotalloanAmount / sharesdata.Emi;
                     totalsumloan += Totalmonthlyamount;
                     TLA = sharesdata.TotalloanAmount;
+
+
+                    TLA = sharesdata.TotalloanAmount;
+
 
 
                     usages.Add(new LoanEmployees()

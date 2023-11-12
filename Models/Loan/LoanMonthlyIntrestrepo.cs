@@ -27,15 +27,22 @@ namespace Kudvenkatcorewebapp.Models.Loan
             this._configuration = configuration;
             this._mapper = mapper;
         }
+<<<<<<< HEAD
 
        
 
+=======
+>>>>>>> dk
         public async Task<IEnumerable<MonthlytotlaLoanCount>> MonthlyIntrestCalculate()
         {
             var monthlyintrestcalculate = new List<MonthlytotlaLoanCount>();
             var data = _appDbContext.loanEmployees.Select(k => new { k.LoanDate.Year, k.LoanDate.Month, k.Id }).GroupBy(x => new { x.Year, x.Month }, (key, group) => new
             {
+<<<<<<< HEAD
                 year = key.Year,
+=======
+                year =  key.Year,
+>>>>>>> dk
                 mnth = key.Month,
                 tCharge = group.Count()
 
@@ -55,18 +62,43 @@ namespace Kudvenkatcorewebapp.Models.Loan
                     });
                 }
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dk
             return monthlyintrestcalculate;
         }
-
         public async Task<IEnumerable<LoanEmployees>> MonthlyIntrestCalculatebyEntityframework()
         {
             var monthlyintrestcalculate = new List<LoanEmployees>();
             try
             {
+<<<<<<< HEAD
                 //var result = await _appDbContext.loanEmployees.GroupBy(x => x.LoanDate)
                 var dt = "10/11/2022";
                      var result = await _appDbContext.loanEmployees.Where(x=>x.LoanDate>=Convert.ToDateTime(dt)).GroupBy(x => x.LoanDate)
+=======
+<<<<<<< HEAD
+                //var result = await _appDbContext.loanEmployees.GroupBy(x => x.LoanDate)
+                var dt = "10/11/2023";
+                     var result = await _appDbContext.loanEmployees.Where(x=>x.LoanDate>=Convert.ToDateTime(dt)).GroupBy(x => x.LoanDate)
+=======
+                //var result1 = from r in _appDbContext.loanEmployees
+                //              group r by r.LoanDate into g
+                //              select new
+                //              {
+                //                  loanddate = g.Key,
+                //                  Totalloan = g.Sum(x => x.TotalIntrest)
+
+                //              };
+
+                
+
+
+
+                var result = await _appDbContext.loanEmployees.GroupBy(x => x.LoanDate)
+>>>>>>> 6c726088470c1c0693ef0d1105c9e591db1ede12
+>>>>>>> dk
                     .Select(g => new
                     {
                         loandate = g.Key,
@@ -93,7 +125,6 @@ namespace Kudvenkatcorewebapp.Models.Loan
             {
                 //ex.Message;
             }
-
             return monthlyintrestcalculate;
         }
 

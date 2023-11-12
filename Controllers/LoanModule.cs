@@ -106,7 +106,7 @@ namespace Kudvenkatcorewebapp.Controllers
         public void AddUpdateDeleteCustomer(LoanEmployees loanEmployees, string action)
         {
             BuyrateMultyplyWithTotalSharesLogic totalintrestlogic = new BuyrateMultyplyWithTotalSharesLogic();
-            loanEmployees.TotalIntrest = totalintrestlogic.TotalIntrest(loanEmployees.TotalLoanAmount, loanEmployees.TotalEmi);
+           // loanEmployees.TotalIntrest = totalintrestlogic.TotalIntrest(loanEmployees.TotalLoanAmount, loanEmployees.TotalEmi);
             using (SqlConnection con = new SqlConnection(_configurtion.GetConnectionString("Default")))
             {
                 using (SqlCommand cmd = new SqlCommand())

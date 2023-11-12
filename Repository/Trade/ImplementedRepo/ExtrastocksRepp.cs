@@ -60,6 +60,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
             }
             return ExtraStocks;
         }
+<<<<<<< HEAD
         public async Task<IEnumerable<ExtraQuantityAddedinStocks>> GetTradeInformationList(int count)
         {
             if (count == 1)
@@ -153,6 +154,44 @@ namespace Kudvenkatcorewebapp.Repository.Trade.ImplementedRepo
                 }
             }
            
+=======
+        public async Task<IEnumerable<ExtraQuantityAddedinStocks>> GetTradeInformationList()
+        {
+            var ExtraStocks = new List<ExtraQuantityAddedinStocks>();
+            var query = await(from t in _appDbContext.ExtraQuantityAddedinStocks 
+                              join trade in _appDbContext.tradeinformations on t.stockid equals trade.Id
+                              join br in _appDbContext.brokers on t.brokerid equals br.ID
+                              where t.Active==1 orderby t.Month descending
+                              
+                              select new
+                              {
+                                 br.BrokerName,
+                                 trade.Stockname,
+                                 t.BuyPrice,
+                                 t.TotalShare,
+                                 t.TotalInvestment,
+                                 t.Month,
+                                 t.Year,
+                              }).OrderByDescending(x=>x.Month).Take(5).ToListAsync();
+
+            if (query?.Any() == true)
+            {
+                foreach (var sharesdata in query)
+                {
+                    ExtraStocks.Add(new ExtraQuantityAddedinStocks()
+                    {
+                        BrokerName = sharesdata.BrokerName,
+                        StockName = sharesdata.Stockname,
+                        BuyPrice = sharesdata.BuyPrice,
+                        TotalShare = sharesdata.TotalShare,
+                        TotalInvestment = sharesdata.TotalInvestment,
+                        Month = sharesdata.Month,
+                        Year = sharesdata.Year,
+                    });
+                }
+            }
+            return ExtraStocks;
+>>>>>>> dk
         }
 
         public async Task<IEnumerable<ExtraQuantityAddedinStocks>> InvestmentYearWise()

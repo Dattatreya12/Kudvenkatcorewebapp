@@ -30,7 +30,10 @@
 
   <ItemGroup>
     <Folder Include="CustomDesign\" />
+<<<<<<< HEAD
     <Folder Include="Models\NewFolder\" />
+=======
+>>>>>>> dk
     <Folder Include="Service\" />
     <Folder Include="Services\" />
     <Folder Include="Views\Shared\Loan\" />

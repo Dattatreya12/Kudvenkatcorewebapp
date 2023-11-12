@@ -30,7 +30,10 @@ namespace Kudvenkatcorewebapp.DBContext
         public DbSet<MonthlyLoanTrack> LoanTracks { get; set; }
         public DbSet<Total_profit_loss> TotalProfiLoss { get; set; }
         public DbSet<Dividend_info> dividend_Infos { get; set; }
+<<<<<<< HEAD
         public DbSet<AddProfitLoss> AddProfitLosses { get; set; }
+=======
+>>>>>>> dk
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
