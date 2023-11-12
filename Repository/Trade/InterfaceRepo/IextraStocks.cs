@@ -9,5 +9,7 @@ namespace Kudvenkatcorewebapp.Repository.Trade.InterfaceRepo
     public interface IextraStocks
     {
         Task <IEnumerable<ExtraQuantityAddedinStocks>> GetTradeInformationList();
+        Task<IEnumerable<ExtraQuantityAddedinStocks>> InvestmentYearWise();
+        Task<IEnumerable<ExtraQuantityAddedinStocks>> Getsearchcountofstocks(int stockcount);
     }
 }

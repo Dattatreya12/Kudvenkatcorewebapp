@@ -1,15 +1,31 @@
-﻿@model Kudvenkatcorewebapp.ViewModels.Trade.DashBoardTradeItemsViewModel
+﻿
+@model Kudvenkatcorewebapp.ViewModels.Trade.DashBoardTradeItemsViewModel
 @{
     ViewData["Title"] = "StocksDashBoard";
 }
 
+<style>
+    #loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        background: url('../images/Gear.gif') no-repeat center;
+    }
+</style>
 
+<form method="post" asp-controller="StocksDashBoard" asp-action="Index">
+
+    <div id="loader" style="display:none;"></div>
 
     <div style="background-color:rgb(233,234,237)">
 
         <div class="row m-1 shadow-sm border border-light">
+
             <div class="col-xs-6 col-md-10 m-0">
-                <h2>StocksDashBoard:@Model.Year</h2>
+                <h3>Total Stocks:<b class="text-black">@Model.Totalsharecount</b></h3>
             </div>
             <div class="col-xs-6 col-md-2  m-0">
                 <button type="button" class="btn btn-info shadow-sm" data-toggle="modal" data-target="#myModal">PROFIT AND LOSS</button>
@@ -22,65 +38,74 @@
 
             <div class="card col-3 m-0 border-white shadow-sm">
                 <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested in Zerodha</h6>
+                    <h6 class="card-title text-capitalize  text-black">Total Invested in Zerodha</h6>
                     @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-black">Rs:@Model.TotalinvestZerodha</h4>
+                    <h4 class="card-text text-muted">Rs:@Model.TotalinvestZerodha</h4>
                     @*<a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>*@
+                        <a href="#" class="card-link">Another link</a>*@
                 </div>
             </div>
 
             <div class="card col-3 m-0 border-white shadow-sm">
                 <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested in Upstox</h6>
+                    <h6 class="card-title text-capitalize text-black">Total Invested in Upstox</h6>
                     @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-black">Rs:@Model.TotalinvestedUpstox</h4>
+                    <h4 class="card-text text-muted">Rs:@Model.TotalinvestedUpstox</h4>
                     @*<a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>*@
+                        <a href="#" class="card-link">Another link</a>*@
                 </div>
             </div>
 
             <div class="card col-3  m-0 border-white shadow-sm">
                 <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested in Angel</h6>
+                    <h6 class="card-title text-capitalize text-black">Total Invested in Angel</h6>
                     @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-black">Rs:@Model.TotalinvestedAngel</h4>
+                    <h4 class="card-text text-muted">Rs:@Model.TotalinvestedAngel</h4>
                     @*<a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>*@
+                        <a href="#" class="card-link">Another link</a>*@
                 </div>
             </div>
 
             <div class="card col-3 m-0 border-white shadow-sm">
                 <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-black">Total Invested Amount</h6>
+                    <h6 class="card-title text-capitalize text-black">Total Invested Amount</h6>
                     @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-black">Rs:@Model.TotalInvestment</h4>
+                    <h4 class="card-text text-muted">Rs:@Model.TotalInvestment</h4>
                     @*<a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>*@
+                        <a href="#" class="card-link">Another link</a>*@
                 </div>
             </div>
-
         </div>
+
         <br />
 
         <div class="row bg-white">
 
-            <div class="col-xs-6 col-md-2 shadow-sm bg-light">
-                <div class="card-body bg-dark">
-                    <h6 class="card-title text-capitalize text-white">Total Invested in Zerodha</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <h4 class="card-text text-white">Rs:@Model.TotalinvestZerodha</h4>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-
+            <!--<div class="col-xs-6 col-md-2 shadow-sm bg-light">
+            <div class="card-body bg-light">-->
+            @*<h6 class="card-title text-capitalize text-muted">Total Number of Shares</h6>*@
+            @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+            @*<h6 class="card-text text-muted">@Model.Totalsharecount</h6>*@
+            @*<a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>*@
+            <!--</div>
+            </div>-->
             @*background-color:#f8f9fa;*@
             <div class="col-xs-12 col-sm-6 col-md-8 shadow-sm" style=" border-color:green">
-                <h3 class="m-0 bg-success shadow-sm text-white">List of Stocks</h3>
+                <span>Stock Name:</span><input type="text" name="Stockname" class="" />
+
+                <input type="submit" value="Search" class="btn btn-success" />
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-8 shadow-sm" style=" border-color:green">
+                <h3 class="m-0 bg-success shadow-sm text-white">
+                    List of Stocks
+
+                </h3>
                 <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2">
                     <thead class="bg-info text-black">
-                        <tr class="table-info">
+                        <tr style="font-size:medium; font-weight:bold" class="table-info">
                             <th>Broker Name</th>
                             <th>Share Name</th>
                             <th>Buy Price</th>
@@ -89,7 +114,7 @@
                             <th>Purchased Date</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="font-size:smaller" class="text-sm-center">
                         @foreach (var item in Model.tradeinformations)
                         {
                             <tr>
@@ -107,23 +132,43 @@
                 </table>
             </div>
 
-            <div class="col-xs-6 col-md-2 bg-white">
+            <div class="col-xs-6 col-md-4 bg-white">
                 <div class="card-body bg-gradient">
-                    <h6 class="card-title text-capitalize bg-info text-white">Total Invested in Zerodha</h6>
+                    <ul>
+                        <li><h6 class="card-title text-capitalize text-black"> Total Invested In @Model.Year <b>Rs:@Model.TotalinvestAmountInYear</b> </h6></li>
+                    </ul>
                     @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
-                    <h4 class="card-text text-white">Rs:@Model.TotalinvestZerodha</h4>
+                    @*<h6 class="card-text text-black text-justify"></h6>*@
                     @*<a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>*@
+                        <a href="#" class="card-link">Another link</a>*@
                 </div>
             </div>
 
         </div>
 
         <br />
-        <h3 class="m-0 bg-success shadow-sm text-white">List of Stocks</h3>
-        <table class="table table-striped text-sm-center font-weight-bold mx-auto m-2">
+        <h3 class="m-0 bg-success shadow-sm text-white"> List of Stocks</h3>
+        <div class="row">
+            <div class="md-6">
+                <select id="stockDropDownList" name="stockDropDownList" class="form-control select2 select2-hidden-accessible m-4">
+                    <option value=5>5</option>
+                    <option value=10>10</option>
+                    <option value=20>20</option>
+                    <option value=50>50</option>
+                </select>
+            </div>
+            <div class="md-3 ">
+                <h4 class="m-4 p-2">Total Records</h4>
+            </div>
+            <div class="md-3">
+                <h4 class="m-4 p-2">@Model.Totaladdedextrastocks</h4>
+            </div>
+        </div>
+
+        <table id="stocktab" class="table table-striped text-sm-center font-weight-bold mx-auto m-2">
+
             <thead class="bg-info text-black">
-                <tr class="table-info">
+                <tr style="font-size:medium; font-weight:bold;" class="table-info">
                     <th>Broker Name</th>
                     <th>Stock Name</th>
                     <th>Buy Price</th>
@@ -133,7 +178,7 @@
                     <th>Year</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-sm-center" style="font-size:smaller">
                 @foreach (var item in Model.extraQuantityAddedinStocks)
                 {
                     <tr>
@@ -172,6 +217,14 @@
 
             </div>
         </div>
-
-
     </div>
+
+</form>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/js/Loaddashboard.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">*@

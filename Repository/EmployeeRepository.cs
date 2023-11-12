@@ -35,19 +35,25 @@ namespace Kudvenkatcorewebapp.Repository
         }
         public async Task<Employee> GetEmployee(int id)
         {
-            return  context.employees.Find(id);
+            return   context.employees.Find(id);
         }
 
         public IEnumerable<Employee> GetAllEmployees()
         {
             IEnumerable<Employee> emp = from c in context.employees
                                         select c;
+            foreach(var data in emp)
+            {
+                string g = data.Gender;
+                data.Gender = g == "M" ? "Male" : "Female";
+            }
             return emp;
             
         }
 
         public IEnumerable<Employee> GetEmployeesList()
         {
+           
             var isdepartment = new List<Employee>();
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -64,7 +70,10 @@ namespace Kudvenkatcorewebapp.Repository
                         Email = rdr.GetString("Email"),
                         Active = rdr.GetInt32("Active")
                     });
+                    rdr.Close();
                 }
+
+                con.Close();
             }
             return isdepartment;
         }

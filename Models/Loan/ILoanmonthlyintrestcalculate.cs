@@ -1,4 +1,5 @@
 ﻿using Kudvenkatcorewebapp.DTO;
+using Kudvenkatcorewebapp.ViewModels.Sangh;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Kudvenkatcorewebapp.Models.Loan
     public interface ILoanmonthlyintrestcalculate
     {
        
-        Task<IEnumerable<LoanEmployees>> MonthlyIntrestCalculate();
+        Task<IEnumerable<MonthlytotlaLoanCount>> MonthlyIntrestCalculate();
         Task<IEnumerable<LoanEmployees>> MonthlyIntrestCalculatebyEntityframework();
         //Task<List<LoanEmployeesDTO>> MonthlyIntrestCalculatebyEntityframework();
         

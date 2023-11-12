@@ -39,48 +39,94 @@ namespace Kudvenkatcorewebapp.Repository.Trade
             throw new NotImplementedException();
         }
 
-        public async Task<List<Tradeinformation>> GetTradeInformationList()
+        public async Task<List<Tradeinformation>> GetTradeInformationList(string stockname)
         {
             //IEnumerable<Tradeinformation> brokerlist = await appDbContext.tradeinformations
             //                                           .Where(x => x.Active == 1).ToListAsync();
 
             //return brokerlist;
             var usages = new List<Tradeinformation>();
-            var query = await (from t in appDbContext.tradeinformations
-                               join b in appDbContext.brokers on t.brokerid equals b.ID
-                               where t.Active == 1
-                               select new
-                               {
-                                   t.Id,
-                                   t.Stockname,
-                                   t.Stockbuykprice,
-                                   t.Stockpurchaseddate,
-                                   t.Stockselldate,
-                                   t.Stocksellprice,
-                                   t.Stocktotalshares,
-                                   t.TotalInvestedAmount,
-                                   b.BrokerName
-                               }).ToListAsync();
-
-            if (query?.Any() == true)
+            DateTime dt = DateTime.Now;
+            if (stockname != null && stockname != string.Empty)
             {
-                foreach (var sharesdata in query)
+                var query = await (from t in appDbContext.tradeinformations
+                                   join b in appDbContext.brokers on t.brokerid equals b.ID
+                                   where t.Active == 1 && t.Stockname.Contains(stockname)
+                                   select new
+                                   {
+                                       t.Id,
+                                       t.Stockname,
+                                       t.Stockbuykprice,
+                                       t.Stockpurchaseddate,
+                                       t.Stockselldate,
+                                       t.Stocksellprice,
+                                       t.Stocktotalshares,
+                                       t.TotalInvestedAmount,
+                                       b.BrokerName
+                                   }).ToListAsync();
+
+                if (query?.Any() == true)
                 {
-                    usages.Add(new Tradeinformation()
+                    foreach (var sharesdata in query)
                     {
-                        Id=sharesdata.Id,
-                        Stockname = sharesdata.Stockname,
-                        Stockbuykprice = sharesdata.Stockbuykprice,
-                        Stockpurchaseddate = sharesdata.Stockpurchaseddate,
-                        Stockselldate = sharesdata.Stockselldate,
-                        Stocksellprice = sharesdata.Stocksellprice,
-                        Stocktotalshares = sharesdata.Stocktotalshares,
-                        TotalInvestedAmount =Math.Round(sharesdata.TotalInvestedAmount,2),
-                        BrokerName = sharesdata.BrokerName
-                    });
+                        usages.Add(new Tradeinformation()
+                        {
+                            Id = sharesdata.Id,
+                            Stockname = sharesdata.Stockname,
+                            Stockbuykprice = Math.Round(sharesdata.Stockbuykprice, 2),
+                            Stockpurchaseddate = sharesdata.Stockpurchaseddate,
+                            Stockselldate = sharesdata.Stockselldate,
+                            Stocksellprice = sharesdata.Stocksellprice,
+                            Stocktotalshares = sharesdata.Stocktotalshares,
+                            TotalInvestedAmount = Math.Round(sharesdata.TotalInvestedAmount, 2),
+                            BrokerName = sharesdata.BrokerName
+                        });
+                    }
                 }
+                return usages;
             }
-            return usages;
+
+            else
+            {
+
+                
+                var query = await (from t in appDbContext.tradeinformations
+                                   join b in appDbContext.brokers on t.brokerid equals b.ID
+                                   where t.Active == 1 
+                                   select new
+                                   {
+                                       t.Id,
+                                       t.Stockname,
+                                       t.Stockbuykprice,
+                                       t.Stockpurchaseddate,
+                                       t.Stockselldate,
+                                       t.Stocksellprice,
+                                       t.Stocktotalshares,
+                                       t.TotalInvestedAmount,
+                                       b.BrokerName
+                                   }).ToListAsync();
+
+                if (query?.Any() == true)
+                {
+                    foreach (var sharesdata in query)
+                    {
+                        usages.Add(new Tradeinformation()
+                        {
+                            Id = sharesdata.Id,
+                            Stockname = sharesdata.Stockname,
+                            Stockbuykprice = Math.Round(sharesdata.Stockbuykprice, 2),
+                            Stockpurchaseddate = sharesdata.Stockpurchaseddate,
+                            Stockselldate = sharesdata.Stockselldate,
+                            Stocksellprice = sharesdata.Stocksellprice,
+                            Stocktotalshares = sharesdata.Stocktotalshares,
+                            TotalInvestedAmount = Math.Round(sharesdata.TotalInvestedAmount, 2),
+                            BrokerName = sharesdata.BrokerName
+                        });
+                    }
+                }
+                return usages;
+            }
+            //return usages;
            
 
         }
@@ -109,6 +155,6 @@ namespace Kudvenkatcorewebapp.Repository.Trade
 
         }
 
-        
+    
     }
 }

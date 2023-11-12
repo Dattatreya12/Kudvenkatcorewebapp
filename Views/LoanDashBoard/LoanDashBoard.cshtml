@@ -6,6 +6,19 @@
 @{
     ViewData["Title"] = "LoanDashBoard";
 }
+<style>
+    #loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        background: url('../images/Gear.gif') no-repeat center;
+    }
+</style>
+
+<div id="loader" style="display:none;"></div>
 
 <div class="bg-gradient">
 
@@ -56,12 +69,12 @@
     <div class="row">
 
         <div class="col-xs-6 col-md-4 ">
+
             <table class="table table-striped bg-white" style="font-size:small;">
                 <thead class="bg-info text-black">
                     <tr class="table-info">
                         <th>LoanDate</th>
                         <th>Intrest Amount</th>
-                       
                     </tr>
                 </thead>
                 <tbody>
@@ -74,31 +87,73 @@
                             <td>
                                 @item.TotalIntrest
                             </td>
+
                         </tr>
                     }
                 </tbody>
                 <tfoot>
                     <tr>
                         <td><b>Toal Intrest:</b></td>
-                        
                         <td><b>@Model.loanEmployeesmonthlyintrestcalculate.Sum(i => i.TotalIntrest)</b></td>
-                       
-            </tr>
+                    </tr>
                 </tfoot>
+            </table>
+
+            <table class="table table-striped bg-white" style="font-size:small;">
+                <thead class="bg-info text-black">
+                    <tr class="table-info">
+                        <th>Month</th>
+                        <th>Year</th>
+                        <th>Number of Loans</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.loanEmployeesmonthlyLoancount)
+                    {
+                        <tr>
+                            <td>
+                                @item.month
+                            </td>
+                            <td>
+                                @item.year
+                            <td>
+                                @item.toatlloancountmonthly
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+                @*<tfoot>
+                        <tr>
+                            <td><b>Toal Intrest:</b></td>
+                            <td><b>@Model.loanEmployeesmonthlyintrestcalculate.Sum(i => i.TotalIntrest)</b></td>
+                        </tr>
+                    </tfoot>*@
             </table>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-8" style="font-size:small;" @*style="background-color:#f8f9fa;"*@>
-            <h3 class=" bg-success shadow-sm text-white">List of Loans</h3>
-            <table class="table table-striped text-sm-center mx-auto m-2 bg-white" style="font-size:small;">
+            <h3 class=" bg-success shadow-sm text-white">
+                List of Loans:
+                <select id="employeeDropDownList" name="employeeDropDownList" class="form-control select2 select2-hidden-accessible"
+                        style="width: 100%;" tabindex="-1" aria-hidden="true">
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </h3>
+            <table id="ld" class="table table-striped text-sm-center mx-auto m-2 bg-white" style="font-size:small;">
                 <thead class="bg-info text-black">
                     <tr class="table-info">
                         <th>LoanId</th>
                         <th>Loan Date</th>
                         <th>Name</th>
-                        <th>Monthly Emi Amount</th>
-                        <th>Total Paid Emi</th>
-                        <th>Total Balance Emi</th>
+                        <th>Emi Amount</th>
+                        <th>Paid Emi</th>
+                        <th>Balance Emi</th>
+                        <th>Total EMI</th>
+                        <th>Total Loan</th>
 
 
                     </tr>
@@ -113,15 +168,28 @@
                             <td>@item.TotalLoanAmount</td>
                             <td>@item.TotalPaidEmi</td>
                             <td>@item.TatlBalanceEmi</td>
+                            <td>@item.TotalEmi</td>
+                            <td>@(item.TotalLoanAmount*item.TotalEmi)</td>
 
                         </tr>
 
                     }
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>Total Loan:</b></td>
+                        <td><b>@Model.loanEmployees.Sum(i => i.TatlBalanceEmi * i.TotalLoanAmount)</b></td>
+
+                    </tr>
+                </tfoot>
             </table>
         </div>
-
-
 
     </div>
 
@@ -183,7 +251,12 @@
             }
         </tbody>
     </table>
-
-
-
 </div>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/js/Loaddashboard.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">*@

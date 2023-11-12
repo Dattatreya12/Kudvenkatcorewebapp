@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FgsuwoPrrb+rgTOHvLqg5K2dICDdrf0mjJXpm7YzegEO2W9M8vrJp09PgAwx4HO7hppgm1mfyhaP1XZ3eMcTog==",
+  "dgSpecHash": "y9Mj8wZ4vLbxEmLmOzmwOScrQzJz03jwo7G1aIaDYrqBHtrhXUdxtoESM9QGVIfBd5saqNt1rGAzoqg/AN8G/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
+  "projectFilePath": "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DAttatreya\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\DAttatreya\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

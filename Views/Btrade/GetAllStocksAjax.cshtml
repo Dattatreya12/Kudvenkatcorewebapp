@@ -29,7 +29,7 @@
             <th>Stock sell date</th>
             <th>Total Invested Amount</th>
             <th>Broker Name</th>
-            @*<th>Actions</th>*@
+            <th>Actions</th>
 
         </tr>
     </thead>
@@ -41,7 +41,7 @@
                     @( ((Int32)1) + item.Index )
                 </td>
                
-                @*<partial name="_Allstocinformation" model="@item.data" />*@
+                <partial name="_Allstocinformation" model="@item.data" />
             </tr>
         }
     </tbody>
@@ -58,7 +58,7 @@
             <td></td>
             <td>@Model.Sum(i => i.TotalInvestedAmount)</td>
             <td></td>
-            @*<td></td>*@
+            <td></td>
         </tr>
     </tfoot>
 </table>

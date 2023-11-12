@@ -8,6 +8,9 @@ using Kudvenkatcorewebapp.Models.Trade;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Kudvenkatcorewebapp.ViewModels.Sangh;
+using Kudvenkatcorewebapp.DTO;
+using System.Data.SqlClient;
+
 namespace Kudvenkatcorewebapp.DBContext
 {
     public class AppDbContext:IdentityDbContext<ApplicationUser>
@@ -26,6 +29,8 @@ namespace Kudvenkatcorewebapp.DBContext
         public DbSet<ExtraQuantityAddedinStocks> ExtraQuantityAddedinStocks { get; set; }
         public DbSet<MonthlyLoanTrack> LoanTracks { get; set; }
         public DbSet<Total_profit_loss> TotalProfiLoss { get; set; }
+        public DbSet<Dividend_info> dividend_Infos { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,9 +40,13 @@ namespace Kudvenkatcorewebapp.DBContext
 
         public DbSet<Kudvenkatcorewebapp.ViewModels.Sangh.DashBoardViewModel> DashBoardViewModel { get; set; }
 
+        public DbSet<Kudvenkatcorewebapp.DTO.EmployeeDTO> EmployeeDTO { get; set; }
+
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    base.OnConfiguring(optionsBuilder);
         //}
+
+        
     }
 }

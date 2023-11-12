@@ -318,7 +318,7 @@ namespace Kudvenkatcorewebapp.Controllers
                     RoleName = role.Name
                 };
 
-                if(await _userManager.IsInRoleAsync(user, role.Name))
+                if (await _userManager.IsInRoleAsync(user, role.Name))
                 {
                     ruvm.IsSelected = true;
                 }

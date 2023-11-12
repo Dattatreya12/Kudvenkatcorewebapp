@@ -8,15 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] ML-FINANACE-GROUP</title>
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <script src="~/lib/jquery/jquery.min.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
         <script src="~/lib/jquery-validate/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <script src="~/lib/jquery/jquery.min.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
         <script src="~/lib/jquery-validate/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -32,37 +34,37 @@
     <div id="laodcontent">
 
         @*<header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kudvenkatcorewebapp</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">Create Employee</a>
-                            </li>
-
-                        </ul>
-
-                            <ul class="nav navbar-nav navbar-right">
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                    <div class="container">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kudvenkatcorewebapp</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                            <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register Employee</a></li>
-                                <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">Create Employee</a>
+                                </li>
+
                             </ul>
 
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register Employee</a></li>
+                                    <li class="nav-item"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                </ul>
+
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </header>*@
+                </nav>
+            </header>*@
 
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -83,7 +85,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Presentation" asp-action="Services">Services</a>
                         </li>
 
-                      
+
                         @if (_signInManager.IsSignedIn(User) && (User.IsInRole("Admin")))
                         {
                             <li class="nav-item">
@@ -125,54 +127,54 @@
 
 
                     @*<ul class="navbar-nav">
+                            @if (_signInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">New Employee</a>
+                                    </li>
+                                    }
+                                }
+                        </ul>*@
+                    <ul class="navbar-nav ml-auto">
                         @if (_signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <form method="post" asp-action="Logout" asp-controller="Account">
+                                    <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                                        LogOut @User.Identity.Name
+                                    </button>
+                                </form>
                             </li>
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateEmployee">New Employee</a>
-                                </li>
-                                }
-                            }
-                    </ul>*@
-                    <ul class="navbar-nav ml-auto">
-                        @if (_signInManager.IsSignedIn(User))
-                    {
-                        <li class="nav-item">
-                            <form method="post" asp-action="Logout" asp-controller="Account">
-                                <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
-                                    LogOut @User.Identity.Name
-                                </button>
-                            </form>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">SignUp</a>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">SignUp</a>
 
-                        </li>
-                    }
-                    else
-                    {
+                            </li>
+                        }
+                        else
+                        {
 
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-outline-primary btn-lg px-5" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-primary btn-lg px-5" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
 
-                        </li>
-                    }
+                            </li>
+                        }
                     </ul>
                     @*<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>*@
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>*@
 
                 </div>
             </div>
@@ -190,7 +192,7 @@
 
         <footer class="border-top footer text-muted m-1">
             <div class="container-fluid">
-                &copy; 2022 - ML-FINANCE-GROUP <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                &copy; 2023 - ML-FINANCE-GROUP <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
         </footer>
     </div>
@@ -198,7 +200,7 @@
         $(document).ready(function () {
             $("#laodcontent").fadeIn(2000);
         })
-      
+
 
         var loader = document.getElementById('preloader');
         window.addEventListener("load", function () {
@@ -209,11 +211,11 @@
         function removeLoader() {
             $("#preloader").fadeOut(500, function () {
                 // fadeOut complete. Remove the loading div
-                $("#preloader").remove(); //makes page more lightweight 
+                $("#preloader").remove(); //makes page more lightweight
             });
         }
 
-        
+
     </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -221,9 +223,11 @@
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
     @if (IsSectionDefined("Scripts"))
     {
-    @RenderSection("Scripts", required: true)
+        @RenderSection("Scripts", required: true)
     }
 
 </body>

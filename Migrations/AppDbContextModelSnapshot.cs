@@ -19,6 +19,42 @@ namespace Kudvenkatcorewebapp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Kudvenkatcorewebapp.DTO.EmployeeDTO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Active")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Department")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InitialName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalInvestedAmount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmployeeDTO");
+                });
+
             modelBuilder.Entity("Kudvenkatcorewebapp.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -363,6 +399,35 @@ namespace Kudvenkatcorewebapp.Migrations
                     b.ToTable("brokers");
                 });
 
+            modelBuilder.Entity("Kudvenkatcorewebapp.Models.Trade.Dividend_info", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("dividendAmount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("stockid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("stockname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("tradeinformationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("tradeinformationId");
+
+                    b.ToTable("dividend_Infos");
+                });
+
             modelBuilder.Entity("Kudvenkatcorewebapp.Models.Trade.ExtraQuantityAddedinStocks", b =>
                 {
                     b.Property<int>("ID")
@@ -394,7 +459,20 @@ namespace Kudvenkatcorewebapp.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
+                    b.Property<int>("brokerid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("stockid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("tradeinformationId")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("brokerid");
+
+                    b.HasIndex("tradeinformationId");
 
                     b.ToTable("ExtraQuantityAddedinStocks");
                 });
@@ -490,6 +568,9 @@ namespace Kudvenkatcorewebapp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<double>("TotalIntrest")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalLoanAmount")
                         .HasColumnType("float");
 
                     b.Property<double>("TotalSumofAmount")
@@ -685,6 +766,26 @@ namespace Kudvenkatcorewebapp.Migrations
                     b.HasOne("Kudvenkatcorewebapp.ViewModels.Sangh.DashBoardViewModel", null)
                         .WithMany("loanEmployeesmonthlyintrestcalculate")
                         .HasForeignKey("DashBoardViewModelId1");
+                });
+
+            modelBuilder.Entity("Kudvenkatcorewebapp.Models.Trade.Dividend_info", b =>
+                {
+                    b.HasOne("Kudvenkatcorewebapp.Models.Trade.Tradeinformation", "tradeinformation")
+                        .WithMany("dividend_Infos")
+                        .HasForeignKey("tradeinformationId");
+                });
+
+            modelBuilder.Entity("Kudvenkatcorewebapp.Models.Trade.ExtraQuantityAddedinStocks", b =>
+                {
+                    b.HasOne("Kudvenkatcorewebapp.Models.Trade.Broker", "broker")
+                        .WithMany("extraQuantityAddedinStocks")
+                        .HasForeignKey("brokerid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kudvenkatcorewebapp.Models.Trade.Tradeinformation", "tradeinformation")
+                        .WithMany("extraQuantityAddedinStocks")
+                        .HasForeignKey("tradeinformationId");
                 });
 
             modelBuilder.Entity("Kudvenkatcorewebapp.Models.Trade.Tradeinformation", b =>

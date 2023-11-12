@@ -1,0 +1,76 @@
+﻿@model BrokerTradeViewModel
+@*
+    For more information on enabling Kudvenkatcorewebapp.Models.Trade for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+
+    <div class="row bg-light">
+        <div class="col-md-12 bg-info">
+            
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label font-weight-bold text-black">Select-Brokers</label>
+                    <div class="col-sm-12">
+                        <select asp-for="ExtraQuantityAddedinStocks.brokerid" class="form-control" asp-items=" ViewBag.brokerlist" id="brokerid">
+                            <option value="">Please select Broker</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label font-weight-bold text-black">Select-Stocks</label>
+                    <div class="col-sm-12">
+                        <select asp-for="ExtraQuantityAddedinStocks.stockid" class="form-control" asp-items=" ViewBag.tradelist" id="id">
+                            <option value="">Please select Stock</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label font-weight-bold text-black">Buy Price</label>
+                    <input asp-for="ExtraQuantityAddedinStocks.BuyPrice" class="form-control" autocomplete="off" placeholder="Enter BuyPrice" id="buyprice" />
+                    <span asp-validation-for="ExtraQuantityAddedinStocks.BuyPrice" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label font-weight-bold text-black">Total Shares</label>
+                    <input asp-for="ExtraQuantityAddedinStocks.TotalShare" class="form-control" id="totalshare" />
+                    <span asp-validation-for="ExtraQuantityAddedinStocks.TotalShare" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label font-weight-bold text-black">Total Investment</label>
+                    <input asp-for="ExtraQuantityAddedinStocks.TotalInvestment" class="form-control" id="totalinvestment" />
+                    <span asp-validation-for="ExtraQuantityAddedinStocks.TotalInvestment" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label font-weight-bold text-black">Month</label>
+                    <input asp-for="ExtraQuantityAddedinStocks.Month" class="form-control" id="month" />
+                    <span asp-validation-for="ExtraQuantityAddedinStocks.Month" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label font-weight-bold text-black">Year</label>
+                    <input asp-for="ExtraQuantityAddedinStocks.Year" class="form-control" id="year"/>
+                    <span asp-validation-for="ExtraQuantityAddedinStocks.Year" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+
+                    <input type="hidden" asp-for="ExtraQuantityAddedinStocks.StockName" asp-items=" ViewBag.brokerlist" />
+                    <input type="hidden" asp-for="ExtraQuantityAddedinStocks.BrokerName" asp-items=" ViewBag.brokerlist" />
+
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="btnsubmit" onclick="Addextrastock();" />
+                </div>
+          
+        </div>
+    </div>
+
+

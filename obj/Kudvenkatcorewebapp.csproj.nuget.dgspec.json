@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {}
+    "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {
+    "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
+        "projectUniqueName": "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
         "projectName": "Kudvenkatcorewebapp",
-        "projectPath": "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
+        "projectPath": "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp.csproj",
         "packagesPath": "C:\\Users\\DAttatreya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DAttatreya\\OneDrive\\Desktop\\Downloads\\Kudvenkatcorewebapp\\Kudvenkatcorewebapp\\obj\\",
+        "outputPath": "C:\\Datta\\KudVenkatBackUp\\Kudvenkatcorewebapp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\DAttatreya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -36,7 +36,8 @@ namespace Kudvenkatcorewebapp.Controllers
         public async Task<IActionResult> BrokerDropdownList()
         {
             //ViewBag.brokerlist = new SelectList(await _brokerRepository.GetAllBrokerListusingIenumerable(), "ID", "BrokerName");
-            IEnumerable<Tradeinformation> brokerlist = await _tradeinformation.GetTradeInformationList();
+            string name = "";
+            IEnumerable<Tradeinformation> brokerlist = await _tradeinformation.GetTradeInformationList(name);
             ////return View(__StocksnformationView, brokerlist);
             //return PartialView("_StocksnformationView", brokerlist);
             return View(brokerlist);
@@ -44,7 +45,8 @@ namespace Kudvenkatcorewebapp.Controllers
 
         public async Task<IActionResult> GetAllStocks()
         {
-            IEnumerable<Tradeinformation> sharelist = await _tradeinformation.GetTradeInformationList();
+            string name = "";
+            IEnumerable<Tradeinformation> sharelist = await _tradeinformation.GetTradeInformationList(name);
             return View(sharelist);
         }
 
@@ -52,7 +54,8 @@ namespace Kudvenkatcorewebapp.Controllers
         {
             int id = Convert.ToInt32(TempData["ID"]);
             ViewBag.message = id;
-            IEnumerable<Tradeinformation> sharelist = await _tradeinformation.GetTradeInformationList();
+            string name = "";
+            IEnumerable<Tradeinformation> sharelist = await _tradeinformation.GetTradeInformationList(name);
             return View(sharelist);
         }
 
